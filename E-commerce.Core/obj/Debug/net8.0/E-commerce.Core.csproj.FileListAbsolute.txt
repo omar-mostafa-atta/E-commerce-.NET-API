@@ -1,0 +1,14 @@
+F:\omarapi\e-commerce\E-commerce.Core\bin\Debug\net8.0\E-commerce.Core.deps.json
+F:\omarapi\e-commerce\E-commerce.Core\bin\Debug\net8.0\E-commerce.Core.runtimeconfig.json
+F:\omarapi\e-commerce\E-commerce.Core\bin\Debug\net8.0\E-commerce.Core.dll
+F:\omarapi\e-commerce\E-commerce.Core\bin\Debug\net8.0\E-commerce.Core.pdb
+F:\omarapi\e-commerce\E-commerce.Core\obj\Debug\net8.0\E-commerce.Core.csproj.AssemblyReference.cache
+F:\omarapi\e-commerce\E-commerce.Core\obj\Debug\net8.0\E-commerce.Core.GeneratedMSBuildEditorConfig.editorconfig
+F:\omarapi\e-commerce\E-commerce.Core\obj\Debug\net8.0\E-commerce.Core.AssemblyInfoInputs.cache
+F:\omarapi\e-commerce\E-commerce.Core\obj\Debug\net8.0\E-commerce.Core.AssemblyInfo.cs
+F:\omarapi\e-commerce\E-commerce.Core\obj\Debug\net8.0\E-commerce.Core.csproj.CoreCompileInputs.cache
+F:\omarapi\e-commerce\E-commerce.Core\obj\Debug\net8.0\E-commerce.Core.dll
+F:\omarapi\e-commerce\E-commerce.Core\obj\Debug\net8.0\refint\E-commerce.Core.dll
+F:\omarapi\e-commerce\E-commerce.Core\obj\Debug\net8.0\E-commerce.Core.pdb
+F:\omarapi\e-commerce\E-commerce.Core\obj\Debug\net8.0\E-commerce.Core.genruntimeconfig.cache
+F:\omarapi\e-commerce\E-commerce.Core\obj\Debug\net8.0\ref\E-commerce.Core.dll

@@ -1,0 +1,17 @@
+F:\omarapi\e-commerce\E-commerce.Repository\bin\Debug\net8.0\E-commerce.Repository.deps.json
+F:\omarapi\e-commerce\E-commerce.Repository\bin\Debug\net8.0\E-commerce.Repository.runtimeconfig.json
+F:\omarapi\e-commerce\E-commerce.Repository\bin\Debug\net8.0\E-commerce.Repository.dll
+F:\omarapi\e-commerce\E-commerce.Repository\bin\Debug\net8.0\E-commerce.Repository.pdb
+F:\omarapi\e-commerce\E-commerce.Repository\bin\Debug\net8.0\E-commerce.Core.dll
+F:\omarapi\e-commerce\E-commerce.Repository\bin\Debug\net8.0\E-commerce.Core.pdb
+F:\omarapi\e-commerce\E-commerce.Repository\obj\Debug\net8.0\E-commerce.Repository.csproj.AssemblyReference.cache
+F:\omarapi\e-commerce\E-commerce.Repository\obj\Debug\net8.0\E-commerce.Repository.GeneratedMSBuildEditorConfig.editorconfig
+F:\omarapi\e-commerce\E-commerce.Repository\obj\Debug\net8.0\E-commerce.Repository.AssemblyInfoInputs.cache
+F:\omarapi\e-commerce\E-commerce.Repository\obj\Debug\net8.0\E-commerce.Repository.AssemblyInfo.cs
+F:\omarapi\e-commerce\E-commerce.Repository\obj\Debug\net8.0\E-commerce.Repository.csproj.CoreCompileInputs.cache
+F:\omarapi\e-commerce\E-commerce.Repository\obj\Debug\net8.0\E-commer.3EC6A4C5.Up2Date
+F:\omarapi\e-commerce\E-commerce.Repository\obj\Debug\net8.0\E-commerce.Repository.dll
+F:\omarapi\e-commerce\E-commerce.Repository\obj\Debug\net8.0\refint\E-commerce.Repository.dll
+F:\omarapi\e-commerce\E-commerce.Repository\obj\Debug\net8.0\E-commerce.Repository.pdb
+F:\omarapi\e-commerce\E-commerce.Repository\obj\Debug\net8.0\E-commerce.Repository.genruntimeconfig.cache
+F:\omarapi\e-commerce\E-commerce.Repository\obj\Debug\net8.0\ref\E-commerce.Repository.dll
