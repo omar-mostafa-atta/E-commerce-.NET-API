@@ -9,7 +9,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace e_commerce
 {
@@ -33,8 +36,19 @@ namespace e_commerce
 				options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 			// Identity configuration
-			builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-				.AddEntityFrameworkStores<E_commerceContext>();
+			builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<E_commerceContext>().AddDefaultTokenProviders();
+
+			builder.Services
+			.AddFluentEmail("omarmostafaatta@gmail.com", "E-commerce")
+			.AddSmtpSender(new SmtpClient("smtp.gmail.com")
+			{
+			Port = 587,
+			Credentials = new NetworkCredential("omarmostafaatta@gmail.com", "zgtx gopp tswt owag"),
+			EnableSsl = true
+			});
+
+
+
 
 			// Authentication configuration
 			builder.Services.AddAuthentication(options =>
@@ -56,8 +70,8 @@ namespace e_commerce
 					IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:SecurityKey"]))
 				};
 			});
-
-			// AutoMapper configuration
+			JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+			
 			builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
 			var app = builder.Build();

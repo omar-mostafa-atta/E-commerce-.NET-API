@@ -3,6 +3,7 @@ using E_commerce.API.DTO;
 using E_commerce.Core.Models;
 using E_commerce.Services.Services.CategoryService;
 using E_commerce.Services.Services.ProductService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,7 @@ namespace e_commerce.Controllers
 
 
 		[HttpPost("AddProduct")]
+		//[Authorize]
 		public IActionResult Add(ProductDto productDto)
 		{
 			if (!ModelState.IsValid) return BadRequest(ModelState);

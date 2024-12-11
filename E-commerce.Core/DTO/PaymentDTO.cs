@@ -10,7 +10,9 @@ namespace E_commerce.Core.DTO
 	{
 		public string NameOnCard { get; set; }
 		public int CardNumber { get; set; }
+		public int CVV { get; set; }
 		public string ExpireDate { get; set; }
-
+		public int OrderId { get; set; }
+		public string UserId { get; set; }
 	}
 }

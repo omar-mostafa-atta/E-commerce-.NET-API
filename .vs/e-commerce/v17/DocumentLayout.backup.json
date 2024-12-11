@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "F:\\omarapi\\e-commerce\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5A0C3E3C-A2C6-4DA6-8B05-54150941D8AE}|e-commerce\\e-commerce.csproj|f:\\omarapi\\e-commerce\\e-commerce\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A0C3E3C-A2C6-4DA6-8B05-54150941D8AE}|e-commerce\\e-commerce.csproj|solutionrelative:e-commerce\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5A0C3E3C-A2C6-4DA6-8B05-54150941D8AE}|e-commerce\\e-commerce.csproj|f:\\omarapi\\e-commerce\\e-commerce\\controllers\\registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A0C3E3C-A2C6-4DA6-8B05-54150941D8AE}|e-commerce\\e-commerce.csproj|solutionrelative:e-commerce\\controllers\\registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A0C3E3C-A2C6-4DA6-8B05-54150941D8AE}|e-commerce\\e-commerce.csproj|f:\\omarapi\\e-commerce\\e-commerce\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A0C3E3C-A2C6-4DA6-8B05-54150941D8AE}|e-commerce\\e-commerce.csproj|solutionrelative:e-commerce\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA7CEC6D-7044-4C39-A1C3-260527155539}|E-commerce.Core\\E-commerce.Core.csproj|f:\\omarapi\\e-commerce\\e-commerce.core\\dto\\resetpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA7CEC6D-7044-4C39-A1C3-260527155539}|E-commerce.Core\\E-commerce.Core.csproj|solutionrelative:e-commerce.core\\dto\\resetpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5A0C3E3C-A2C6-4DA6-8B05-54150941D8AE}|e-commerce\\e-commerce.csproj|f:\\omarapi\\e-commerce\\e-commerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -18,8 +26,21 @@
       "DocumentGroups": [
         {
           "DockedHeight": 83,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RegisterController.cs",
+              "DocumentMoniker": "F:\\omarapi\\e-commerce\\e-commerce\\Controllers\\RegisterController.cs",
+              "RelativeDocumentMoniker": "e-commerce\\Controllers\\RegisterController.cs",
+              "ToolTip": "F:\\omarapi\\e-commerce\\e-commerce\\Controllers\\RegisterController.cs*",
+              "RelativeToolTip": "e-commerce\\Controllers\\RegisterController.cs*",
+              "ViewState": "AgIAACwAAAAAAAAAAAAwwEUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T14:08:58.088Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -46,28 +67,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "F:\\omarapi\\e-commerce\\e-commerce\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "e-commerce\\Controllers\\AccountController.cs",
-              "ToolTip": "F:\\omarapi\\e-commerce\\e-commerce\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "e-commerce\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAowEwAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T23:15:57.074Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\omarapi\\e-commerce\\e-commerce\\Program.cs",
               "RelativeDocumentMoniker": "e-commerce\\Program.cs",
               "ToolTip": "F:\\omarapi\\e-commerce\\e-commerce\\Program.cs",
               "RelativeToolTip": "e-commerce\\Program.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAABAAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAgwEkAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T13:32:56.619Z",
+              "WhenOpened": "2024-12-11T13:55:58.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ResetPasswordDTO.cs",
+              "DocumentMoniker": "F:\\omarapi\\e-commerce\\E-commerce.Core\\DTO\\ResetPasswordDTO.cs",
+              "RelativeDocumentMoniker": "E-commerce.Core\\DTO\\ResetPasswordDTO.cs",
+              "ToolTip": "F:\\omarapi\\e-commerce\\E-commerce.Core\\DTO\\ResetPasswordDTO.cs",
+              "RelativeToolTip": "E-commerce.Core\\DTO\\ResetPasswordDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T12:25:32.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "F:\\omarapi\\e-commerce\\e-commerce\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "e-commerce\\Controllers\\LoginController.cs",
+              "ToolTip": "F:\\omarapi\\e-commerce\\e-commerce\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "e-commerce\\Controllers\\LoginController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAADgvyEAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T11:30:33.432Z",
               "EditorCaption": ""
             }
           ]

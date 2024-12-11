@@ -6,11 +6,12 @@ namespace E_commerce.Core.Models
 	public class Order : BaseEntity
 	{
 		public decimal TotalPrice { get; set; }
-		public int UserId { get; set; }
+		public string UserId { get; set; }
 		public ApplicationUser User { get; set; }
 
 		[NotMapped]
 		public List<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>(); 
+
 	}
 
 	[NotMapped]

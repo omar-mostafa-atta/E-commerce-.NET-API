@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,6 @@ namespace E_commerce.Core.Models
 	{
         public string? Address { get; set; }
 
-		public int PaymentId { get; set; }
 		public List<Payment> Payments { get; set; }
 		List<Order> Orders { get; set; }
     }

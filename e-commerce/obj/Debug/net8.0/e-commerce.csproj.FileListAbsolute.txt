@@ -150,3 +150,5 @@ F:\omarapi\e-commerce\e-commerce\bin\Debug\net8.0\Microsoft.AspNetCore.Authentic
 F:\omarapi\e-commerce\e-commerce\bin\Debug\net8.0\AutoMapper.dll
 F:\omarapi\e-commerce\e-commerce\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 F:\omarapi\e-commerce\e-commerce\bin\Debug\net8.0\Microsoft.AspNet.Identity.Core.dll
+F:\omarapi\e-commerce\e-commerce\bin\Debug\net8.0\FluentEmail.Core.dll
+F:\omarapi\e-commerce\e-commerce\bin\Debug\net8.0\FluentEmail.Smtp.dll

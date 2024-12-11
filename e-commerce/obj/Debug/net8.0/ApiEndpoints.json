@@ -1,74 +1,5 @@
 [
   {
-    "ContainingType": "e_commerce.Controllers.AccountController",
-    "Method": "AssignRole",
-    "RelativePath": "api/Account/AssignRole",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "roleName",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "e_commerce.Controllers.AccountController",
-    "Method": "GetUserRoles",
-    "RelativePath": "api/Account/GetRoles/{userId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "e_commerce.Controllers.AccountController",
-    "Method": "Login",
-    "RelativePath": "api/Account/Login",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "UserFromRequest",
-        "Type": "E_commerce.Core.DTO.LoginDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "e_commerce.Controllers.AccountController",
-    "Method": "Register",
-    "RelativePath": "api/Account/Register",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userFromRequest",
-        "Type": "E_commerce.Core.DTO.ApplicationUserDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "e_commerce.Controllers.CategoryController",
     "Method": "Add",
     "RelativePath": "api/Category/AddCategory",
@@ -148,6 +79,54 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "e_commerce.Controllers.LoginController",
+    "Method": "Login",
+    "RelativePath": "api/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserFromRequest",
+        "Type": "E_commerce.Core.DTO.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.LoginController",
+    "Method": "ForgotPassword",
+    "RelativePath": "api/Login/ForgotPassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "E_commerce.Core.DTO.ForgotPasswordDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.LoginController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/Login/ResetPassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "E_commerce.Core.DTO.ResetPasswordDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "e_commerce.Controllers.OrderController",
     "Method": "AddOrder",
     "RelativePath": "api/Order",
@@ -158,6 +137,48 @@
       {
         "Name": "orderFromRequest",
         "Type": "E_commerce.Core.DTO.OrderDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.OrderController",
+    "Method": "GetAll",
+    "RelativePath": "api/Order",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_commerce.Controllers.PaymentController",
+    "Method": "ProcessPayment",
+    "RelativePath": "api/Payment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paymentFromRequest",
+        "Type": "E_commerce.Core.DTO.PaymentDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "E_commerce.Controllers.PaymentController",
+    "Method": "GetPaymentDetails",
+    "RelativePath": "api/Payment/{orderId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -227,6 +248,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "e_commerce.Controllers.RegisterController",
+    "Method": "Register",
+    "RelativePath": "api/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userFromRequest",
+        "Type": "E_commerce.Core.DTO.ApplicationUserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.RegisterController",
+    "Method": "ConfirmRegisteration",
+    "RelativePath": "api/Register/confirmRegisteration",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userFromRequest",
+        "Type": "E_commerce.Core.DTO.ConfirmApplicationUserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "e_commerce.Controllers.RoleController",
     "Method": "AddRole",
     "RelativePath": "api/Role/AddRole",
@@ -244,6 +297,27 @@
   },
   {
     "ContainingType": "e_commerce.Controllers.RoleController",
+    "Method": "AssignRole",
+    "RelativePath": "api/Role/AssignRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "roleName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.RoleController",
     "Method": "GetUserRoles",
     "RelativePath": "api/Role/GetUserRoles/{username}",
     "HttpMethod": "GET",
@@ -252,6 +326,22 @@
     "Parameters": [
       {
         "Name": "username",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.RoleController",
+    "Method": "GetUserRolesById",
+    "RelativePath": "api/Role/GetUserRolesById/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
         "Type": "System.String",
         "IsRequired": true
       }

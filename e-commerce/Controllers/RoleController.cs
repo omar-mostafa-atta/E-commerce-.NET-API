@@ -1,7 +1,6 @@
 ﻿using E_commerce.Core.DTO;
 using E_commerce.Core.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -64,6 +63,47 @@ namespace e_commerce.Controllers
 				Roles = roles
 			});
 		}
+
+		[HttpGet("GetUserRolesById/{userId}")]
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> GetUserRolesById(string userId)
+		{
+			var user = await _userManager.FindByIdAsync(userId);
+			if (user == null)
+			{
+				return NotFound("User not found.");
+			}
+
+			var roles = await _userManager.GetRolesAsync(user);
+			return Ok(roles);
+		}
+
+
+
+		[HttpPost("AssignRole")]
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> AssignRole(string userId, string roleName)
+		{
+			var user = await _userManager.FindByIdAsync(userId);
+			if (user == null)
+			{
+				return NotFound("User not found.");
+			}
+
+			if (!await _RoleManager.RoleExistsAsync(roleName))
+			{
+				return BadRequest("Role does not exist.");
+			}
+
+			var result = await _userManager.AddToRoleAsync(user, roleName);
+			if (result.Succeeded)
+			{
+				return Ok($"Role '{roleName}' assigned to user '{user.UserName}'.");
+			}
+
+			return BadRequest("Failed to assign role.");
+		}
+
 
 
 	}

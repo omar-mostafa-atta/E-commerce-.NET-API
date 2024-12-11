@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,9 @@ namespace E_commerce.Core.Models
 		public  string ExpireDate { get; set; }
 		public int OrderId { get; set; }
 		public Order Order { get; set; }
-		public int  UserId { get; set; }
+
+		[ForeignKey("User")]
+		public string  UserId { get; set; }
 		public ApplicationUser User { get; set; }
 
 	}

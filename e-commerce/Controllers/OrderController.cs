@@ -5,8 +5,9 @@ using E_commerce.Services.Services.OrderService;
 using E_commerce.Services.Services.ProductService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace e_commerce.Controllers
 {
@@ -14,30 +15,32 @@ namespace e_commerce.Controllers
 	[ApiController]
 	public class OrderController : ControllerBase
 	{
+		private readonly UserManager<ApplicationUser> userManager;
 		private readonly IOrderService _orderService;
 		private readonly IProductService _productService; // Assuming you have a service to fetch product details
 		private readonly IMapper _mapper;
+	 
 
-		public OrderController(IOrderService orderService, IProductService productService, IMapper mapper)
+		public OrderController(IOrderService orderService, IProductService productService, IMapper mapper, UserManager<ApplicationUser> _userManager)
 		{
 			_orderService = orderService;
 			_productService = productService;
 			_mapper = mapper;
+			userManager = _userManager;
 		}
 
 		[HttpPost]
-	    [Authorize(Roles ="Admin")]
-		public IActionResult AddOrder(OrderDTO orderFromRequest)
+		[Authorize]
+		public async Task< IActionResult> AddOrder( OrderDTO orderFromRequest)
 		{
-			var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value; // Extract UserId from token
+			var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
 			if (userId == null)
 			{
 				return Unauthorized("User not authenticated.");
 			}
 
-			int userIdInt = int.Parse(userId);
-			if (orderFromRequest == null|| userIdInt== 0)
+			if (orderFromRequest == null)
 			{
 				return BadRequest("Order cannot be null, and UserId must be valid.");
 			}
@@ -61,7 +64,7 @@ namespace e_commerce.Controllers
 					return BadRequest($"No enough quantity for product {product.Name}. You Requested: {item.Quantity}, Available only: {product.Quantity}");
 				}
 
-				// Add to order products list
+				
 				orderProducts.Add(new OrderProduct
 				{
 					ProductId = item.ProductId,
@@ -69,14 +72,14 @@ namespace e_commerce.Controllers
 					Product = product
 				});
 
-				// Decrease product stock in the database
+			
 				product.Quantity -= item.Quantity;
 				_productService.Update(product); // 34an a3ml Save the updated quantity
 			}
 
 			var order = new Order
 			{
-				UserId = userIdInt,
+				UserId = userId,
 				TotalPrice = orderFromRequest.TotalPrice,
 				OrderProducts = orderProducts
 			};
@@ -84,5 +87,12 @@ namespace e_commerce.Controllers
 			_orderService.Add(order);
 			return Ok("Order added successfully.");
 		}
+		[HttpGet]
+		public IActionResult GetAll()
+		{
+		var orders=_orderService.GetAll();
+			return Ok(orders);
+		}
+
 	}
 }
