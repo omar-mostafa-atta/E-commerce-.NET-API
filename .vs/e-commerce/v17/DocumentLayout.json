@@ -3,20 +3,36 @@
   "WorkspaceRootPath": "F:\\omarapi\\e-commerce\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5A0C3E3C-A2C6-4DA6-8B05-54150941D8AE}|e-commerce\\e-commerce.csproj|f:\\omarapi\\e-commerce\\e-commerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A0C3E3C-A2C6-4DA6-8B05-54150941D8AE}|e-commerce\\e-commerce.csproj|solutionrelative:e-commerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{86036F5C-0C70-4D18-A0E0-5DA1F19B874F}|E-commerce.Services\\E-commerce.Services.csproj|f:\\omarapi\\e-commerce\\e-commerce.services\\e-commerce.services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{86036F5C-0C70-4D18-A0E0-5DA1F19B874F}|E-commerce.Services\\E-commerce.Services.csproj|solutionrelative:e-commerce.services\\e-commerce.services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86036F5C-0C70-4D18-A0E0-5DA1F19B874F}|E-commerce.Services\\E-commerce.Services.csproj|f:\\omarapi\\e-commerce\\e-commerce.services\\services\\imageservice\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86036F5C-0C70-4D18-A0E0-5DA1F19B874F}|E-commerce.Services\\E-commerce.Services.csproj|solutionrelative:e-commerce.services\\services\\imageservice\\imageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A0C3E3C-A2C6-4DA6-8B05-54150941D8AE}|e-commerce\\e-commerce.csproj|f:\\omarapi\\e-commerce\\e-commerce\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A0C3E3C-A2C6-4DA6-8B05-54150941D8AE}|e-commerce\\e-commerce.csproj|solutionrelative:e-commerce\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86036F5C-0C70-4D18-A0E0-5DA1F19B874F}|E-commerce.Services\\E-commerce.Services.csproj|f:\\omarapi\\e-commerce\\e-commerce.services\\services\\productservice\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86036F5C-0C70-4D18-A0E0-5DA1F19B874F}|E-commerce.Services\\E-commerce.Services.csproj|solutionrelative:e-commerce.services\\services\\productservice\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86036F5C-0C70-4D18-A0E0-5DA1F19B874F}|E-commerce.Services\\E-commerce.Services.csproj|f:\\omarapi\\e-commerce\\e-commerce.services\\services\\productservice\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86036F5C-0C70-4D18-A0E0-5DA1F19B874F}|E-commerce.Services\\E-commerce.Services.csproj|solutionrelative:e-commerce.services\\services\\productservice\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FA7CEC6D-7044-4C39-A1C3-260527155539}|E-commerce.Core\\E-commerce.Core.csproj|f:\\omarapi\\e-commerce\\e-commerce.core\\dto\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FA7CEC6D-7044-4C39-A1C3-260527155539}|E-commerce.Core\\E-commerce.Core.csproj|solutionrelative:e-commerce.core\\dto\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86036F5C-0C70-4D18-A0E0-5DA1F19B874F}|E-commerce.Services\\E-commerce.Services.csproj|f:\\omarapi\\e-commerce\\e-commerce.services\\services\\imageservice\\iimageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86036F5C-0C70-4D18-A0E0-5DA1F19B874F}|E-commerce.Services\\E-commerce.Services.csproj|solutionrelative:e-commerce.services\\services\\imageservice\\iimageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5A0C3E3C-A2C6-4DA6-8B05-54150941D8AE}|e-commerce\\e-commerce.csproj|f:\\omarapi\\e-commerce\\e-commerce\\controllers\\registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A0C3E3C-A2C6-4DA6-8B05-54150941D8AE}|e-commerce\\e-commerce.csproj|solutionrelative:e-commerce\\controllers\\registercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5A0C3E3C-A2C6-4DA6-8B05-54150941D8AE}|e-commerce\\e-commerce.csproj|f:\\omarapi\\e-commerce\\e-commerce\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A0C3E3C-A2C6-4DA6-8B05-54150941D8AE}|e-commerce\\e-commerce.csproj|solutionrelative:e-commerce\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FA7CEC6D-7044-4C39-A1C3-260527155539}|E-commerce.Core\\E-commerce.Core.csproj|f:\\omarapi\\e-commerce\\e-commerce.core\\dto\\resetpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FA7CEC6D-7044-4C39-A1C3-260527155539}|E-commerce.Core\\E-commerce.Core.csproj|solutionrelative:e-commerce.core\\dto\\resetpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +42,86 @@
       "DocumentGroups": [
         {
           "DockedHeight": 83,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "E-commerce.Services",
+              "DocumentMoniker": "F:\\omarapi\\e-commerce\\E-commerce.Services\\E-commerce.Services.csproj",
+              "RelativeDocumentMoniker": "E-commerce.Services\\E-commerce.Services.csproj",
+              "ToolTip": "F:\\omarapi\\e-commerce\\E-commerce.Services\\E-commerce.Services.csproj",
+              "RelativeToolTip": "E-commerce.Services\\E-commerce.Services.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-19T12:48:19.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ImageService.cs",
+              "DocumentMoniker": "F:\\omarapi\\e-commerce\\E-commerce.Services\\Services\\ImageService\\ImageService.cs",
+              "RelativeDocumentMoniker": "E-commerce.Services\\Services\\ImageService\\ImageService.cs",
+              "ToolTip": "F:\\omarapi\\e-commerce\\E-commerce.Services\\Services\\ImageService\\ImageService.cs",
+              "RelativeToolTip": "E-commerce.Services\\Services\\ImageService\\ImageService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwAEAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T12:28:36.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IImageService.cs",
+              "DocumentMoniker": "F:\\omarapi\\e-commerce\\E-commerce.Services\\Services\\ImageService\\IImageService.cs",
+              "RelativeDocumentMoniker": "E-commerce.Services\\Services\\ImageService\\IImageService.cs",
+              "ToolTip": "F:\\omarapi\\e-commerce\\E-commerce.Services\\Services\\ImageService\\IImageService.cs",
+              "RelativeToolTip": "E-commerce.Services\\Services\\ImageService\\IImageService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T12:25:14.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "F:\\omarapi\\e-commerce\\E-commerce.Services\\Services\\ProductService\\ProductService.cs",
+              "RelativeDocumentMoniker": "E-commerce.Services\\Services\\ProductService\\ProductService.cs",
+              "ToolTip": "F:\\omarapi\\e-commerce\\E-commerce.Services\\Services\\ProductService\\ProductService.cs",
+              "RelativeToolTip": "E-commerce.Services\\Services\\ProductService\\ProductService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA1wCwAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T12:22:40.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductDTO.cs",
+              "DocumentMoniker": "F:\\omarapi\\e-commerce\\E-commerce.Core\\DTO\\ProductDTO.cs",
+              "RelativeDocumentMoniker": "E-commerce.Core\\DTO\\ProductDTO.cs",
+              "ToolTip": "F:\\omarapi\\e-commerce\\E-commerce.Core\\DTO\\ProductDTO.cs",
+              "RelativeToolTip": "E-commerce.Core\\DTO\\ProductDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T12:18:18.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IProductService.cs",
+              "DocumentMoniker": "F:\\omarapi\\e-commerce\\E-commerce.Services\\Services\\ProductService\\IProductService.cs",
+              "RelativeDocumentMoniker": "E-commerce.Services\\Services\\ProductService\\IProductService.cs",
+              "ToolTip": "F:\\omarapi\\e-commerce\\E-commerce.Services\\Services\\ProductService\\IProductService.cs",
+              "RelativeToolTip": "E-commerce.Services\\Services\\ProductService\\IProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T12:16:35.778Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -54,7 +148,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "F:\\omarapi\\e-commerce\\e-commerce\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "e-commerce\\Controllers\\ProductController.cs",
+              "ToolTip": "F:\\omarapi\\e-commerce\\e-commerce\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "e-commerce\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T20:28:12.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "RegisterController.cs",
               "DocumentMoniker": "F:\\omarapi\\e-commerce\\e-commerce\\Controllers\\RegisterController.cs",
               "RelativeDocumentMoniker": "e-commerce\\Controllers\\RegisterController.cs",
@@ -63,45 +170,6 @@
               "ViewState": "AgIAAAkAAAAAAAAAAAD4vzQAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-11T14:08:58.088Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\omarapi\\e-commerce\\e-commerce\\Program.cs",
-              "RelativeDocumentMoniker": "e-commerce\\Program.cs",
-              "ToolTip": "F:\\omarapi\\e-commerce\\e-commerce\\Program.cs",
-              "RelativeToolTip": "e-commerce\\Program.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAgwDsAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T13:55:58.683Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ResetPasswordDTO.cs",
-              "DocumentMoniker": "F:\\omarapi\\e-commerce\\E-commerce.Core\\DTO\\ResetPasswordDTO.cs",
-              "RelativeDocumentMoniker": "E-commerce.Core\\DTO\\ResetPasswordDTO.cs",
-              "ToolTip": "F:\\omarapi\\e-commerce\\E-commerce.Core\\DTO\\ResetPasswordDTO.cs",
-              "RelativeToolTip": "E-commerce.Core\\DTO\\ResetPasswordDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T12:25:32.917Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "F:\\omarapi\\e-commerce\\e-commerce\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "e-commerce\\Controllers\\LoginController.cs",
-              "ToolTip": "F:\\omarapi\\e-commerce\\e-commerce\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "e-commerce\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAADgvyEAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T11:30:33.432Z",
               "EditorCaption": ""
             }
           ]

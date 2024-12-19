@@ -30,7 +30,7 @@ namespace e_commerce.Controllers
 
 
 		[HttpPost("AddProduct")]
-		//[Authorize]
+		[Authorize(Roles = "Admin")]
 		public IActionResult Add(ProductDto productDto)
 		{
 			if (!ModelState.IsValid) return BadRequest(ModelState);

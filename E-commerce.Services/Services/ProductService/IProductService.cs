@@ -1,4 +1,5 @@
 ﻿using E_commerce.Core.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,8 @@ namespace E_commerce.Services.Services.ProductService
 	{
 		IEnumerable<Product> GetAll();
 		Product GetById(int id);
-		void Add(Product product);
-		void Update(Product product);
+		void Add(Product product, IFormFile images);
+		void Update(Product product, IFormFile? images);
 		void Delete(int id);
 		IEnumerable<Product> GetByCategoryId(int Categoryid);
 	}

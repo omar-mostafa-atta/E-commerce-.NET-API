@@ -1,5 +1,6 @@
 ﻿using E_commerce.Core.Models;
 using E_commerce.Repository.GenericRepository;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace E_commerce.Services.Services.ProductService
 			return _productRepository.Find(x => x.CategoryId == Categoryid);
 		}
 
-		public void Add(Product product)
+		public void Add(Product product, IFormFile images)
 		{
 			var category = _categoryRepository.GetById(product.CategoryId);
 			if (category == null)
@@ -43,7 +44,7 @@ namespace E_commerce.Services.Services.ProductService
 			_productRepository.Add(product);
 		}
 
-		public void Update(Product product)
+		public void Update(Product product, IFormFile images)
 		{
 			_productRepository.Update(product);
 		}
