@@ -16,7 +16,11 @@ namespace E_commerce.Core.Models
 		public string? Feedback { get; set; }
 		public int Quantity { get; set; }
 		public decimal Price { get; set; }
-		public string? Image {  get; set; }
+		public string? Img1 { get; set; }
+		public string? Img2 { get; set; }
+		public string? Img3 { get; set; }
+		public string? Img4 { get; set; }
+		public string? Img5 { get; set; }
 
 		public int CategoryId { get; set; }
 		[JsonIgnore]

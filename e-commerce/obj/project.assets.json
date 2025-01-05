@@ -1770,7 +1770,10 @@
         },
         "runtime": {
           "bin/placeholder/E-commerce.Services.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },

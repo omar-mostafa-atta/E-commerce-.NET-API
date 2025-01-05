@@ -9,11 +9,11 @@ namespace E_commerce.Services.Services.OrderService
 {
 	public interface IOrderService
 	{
-		IEnumerable<Order> GetAll();
-		Order GetById(int id);
-		void Add(Order order);
-		void Update(Order order);
-		void Delete(int id);
+		Task <IEnumerable<Order>> GetAllAsync();
+		Task<Order> GetByIdAsync(int id);
+		Task AddAsync(Order order);
+		Task UpdateAsync(Order order);
+		Task DeleteAsync(int id);
 
 	}
 }

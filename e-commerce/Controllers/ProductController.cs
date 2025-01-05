@@ -4,87 +4,79 @@ using E_commerce.Core.Models;
 using E_commerce.Services.Services.CategoryService;
 using E_commerce.Services.Services.ProductService;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace e_commerce.Controllers
 {
-
-
 	[Route("api/[controller]")]
 	[ApiController]
-
 	public class ProductController : ControllerBase
 	{
 		private readonly IProductService _productService;
-		private readonly ICategoryService _CategoryService;
+		private readonly ICategoryService _categoryService;
 		private readonly IMapper _mapper;
-		public ProductController(IProductService productService, ICategoryService CategoryService, IMapper mapper)
+
+		public ProductController(IProductService productService, ICategoryService categoryService, IMapper mapper)
 		{
 			_productService = productService;
-			_CategoryService = CategoryService;
+			_categoryService = categoryService;
 			_mapper = mapper;
-
 		}
-
 
 		[HttpPost("AddProduct")]
 		[Authorize(Roles = "Admin")]
-		public IActionResult Add(ProductDto productDto)
+		public async Task<IActionResult> Add([FromForm] ProductDto productDto)
 		{
 			if (!ModelState.IsValid) return BadRequest(ModelState);
 
 			var product = _mapper.Map<Product>(productDto);
-		
 
-
-			_productService.Add(product);
+			await _productService.AddAsync(product, productDto.Images);
+			
 			return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
 		}
 
-		[HttpPost("Update/{Id}")]
-		public IActionResult Update(int Id ,ProductDto productFromRequest)
+
+
+
+
+		[HttpPost("Update/{id}")]
+		public async Task<IActionResult> Update(int id, [FromForm] ProductDto productDto)
 		{
-			var ProductFromDb = _productService.GetById(Id);
-			if (ProductFromDb == null)
+			var productFromDb = await _productService.GetByIdAsync(id); // Use async method
+			if (productFromDb == null)
 			{
 				return NotFound("No Product With this Id");
 			}
 
-			#region before using automapper
-			//ProductFromDb.Name = productFromRequest.Name;
-			//ProductFromDb.Price = productFromRequest.Price;
-			//ProductFromDb.Feedback = productFromRequest.Feedback;
-			//ProductFromDb.Image = productFromRequest.Image;
-			//ProductFromDb.CategoryId = productFromRequest.CategoryId;
-			//ProductFromDb.Description = productFromRequest.Description;
-			//ProductFromDb.Brand = productFromRequest.Brand;
-			//ProductFromDb.Quantity = productFromRequest.Quantity;
-			#endregion
-
-			_mapper.Map(productFromRequest, ProductFromDb);
-
-			_productService.Update(ProductFromDb);
+			_mapper.Map(productDto, productFromDb);
+			await _productService.UpdateAsync(productFromDb, productDto.Images); // Await the async call
 			return Ok();
-
 		}
 
 		[HttpGet("GetAll")]
-		public IActionResult GetAll()
+		public async Task<IActionResult> GetAll()
 		{
-		 var Products= _productService.GetAll();
-
-			return Ok(Products);
-
+			var products = await _productService.GetAllAsync(); // Use async method
+			return Ok(products);
 		}
+
 		[HttpGet("GetById/{id}")]
-		public IActionResult GetById(int id)
+		public async Task<IActionResult> GetById(int id)
 		{
-			var Product= _productService.GetById(id);
-			return Ok(Product);
+			var product = await _productService.GetByIdAsync(id); // Use async method
+			if (product == null)
+			{
+				return NotFound("No Product With this Id");
+			}
+			return Ok(product);
 		}
 
-
+		[HttpGet("GetByCategoryId/{categoryId}")]
+		public async Task<IActionResult> GetByCategoryId(int categoryId)
+		{
+			var products = await _productService.GetByCategoryIdAsync(categoryId); // Use async method
+			return Ok(products);
+		}
 	}
 }

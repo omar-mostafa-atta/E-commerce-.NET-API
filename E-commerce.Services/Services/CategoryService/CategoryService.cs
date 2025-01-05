@@ -1,11 +1,12 @@
 ﻿using E_commerce.Core.Models;
 using E_commerce.Repository.GenericRepository;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace E_commerce.Services.Services.CategoryService
 {
 	public class CategoryService : ICategoryService
 	{
-
 		private readonly IGenericRepository<Category> _CategoryRepository;
 
 		public CategoryService(IGenericRepository<Category> CategoryRepository)
@@ -13,30 +14,29 @@ namespace E_commerce.Services.Services.CategoryService
 			_CategoryRepository = CategoryRepository;
 		}
 
-		public IEnumerable<Category> GetAll()
+		public async Task<IEnumerable<Category>> GetAllAsync()
 		{
-			return _CategoryRepository.GetAll();
+			return await _CategoryRepository.GetAllAsync(); // Await async method
 		}
 
-		public Category GetById(int id)
+		public async Task<Category> GetByIdAsync(int id)
 		{
-			return _CategoryRepository.GetById(id);
+			return await _CategoryRepository.GetByIdAsync(id); // Await async method
 		}
 
-		public void Add(Category Category)
+		public async Task AddAsync(Category category)
 		{
-			_CategoryRepository.Add(Category);
+			await _CategoryRepository.AddAsync(category); // Await async method
 		}
 
-		public void Update(Category Category)
+		public async Task UpdateAsync(Category category)
 		{
-			_CategoryRepository.Update(Category);
+			await _CategoryRepository.UpdateAsync(category); // Await async method
 		}
 
-		public void Delete(int id)
+		public async Task DeleteAsync(int id)
 		{
-			_CategoryRepository.Delete(id);
+			await _CategoryRepository.DeleteAsync(id); // Await async method
 		}
 	}
-
 }

@@ -1,46 +1,42 @@
 ﻿using E_commerce.Core.Models;
 using E_commerce.Repository.GenericRepository;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace E_commerce.Services.Services.OrderService
 {
-	public class OrderService:IOrderService
+	public class OrderService : IOrderService
 	{
-		private readonly IGenericRepository<Order> _OrderRepository;
-		public OrderService(IGenericRepository<Order> OrderRepository)
+		private readonly IGenericRepository<Order> _orderRepository;
+
+		public OrderService(IGenericRepository<Order> orderRepository)
 		{
-			_OrderRepository = OrderRepository;
+			_orderRepository = orderRepository;
 		}
 
-		public IEnumerable<Order> GetAll()
+		public async Task<IEnumerable<Order>> GetAllAsync()
 		{
-			return _OrderRepository.GetAll();
+			return await _orderRepository.GetAllAsync(); // Await async method
 		}
 
-		public Order GetById(int id)
+		public async Task<Order> GetByIdAsync(int id)
 		{
-			return _OrderRepository.GetById(id);
+			return await _orderRepository.GetByIdAsync(id); // Await async method
 		}
 
-		public void Add(Order order)
+		public async Task AddAsync(Order order)
 		{
-			
-			_OrderRepository.Add(order);
+			await _orderRepository.AddAsync(order); // Await async method
 		}
 
-		public void Update(Order order)
+		public async Task UpdateAsync(Order order)
 		{
-			_OrderRepository.Update(order);
+			await _orderRepository.UpdateAsync(order); // Await async method
 		}
 
-		public void Delete(int id)
+		public async Task DeleteAsync(int id)
 		{
-			_OrderRepository.Delete(id);
+			await _orderRepository.DeleteAsync(id); // Await async method
 		}
-
 	}
 }

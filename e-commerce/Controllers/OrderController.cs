@@ -53,7 +53,7 @@ namespace e_commerce.Controllers
 			var orderProducts = new List<OrderProduct>();
 			foreach (var item in orderFromRequest.ProductQuantities)
 			{
-				var product = _productService.GetById(item.ProductId); // Fetch product details
+				var product = await _productService.GetByIdAsync(item.ProductId); // Fetch product details
 				if (product == null)
 				{
 					return BadRequest($"Product with ID {item.ProductId} not found.");
@@ -69,12 +69,12 @@ namespace e_commerce.Controllers
 				{
 					ProductId = item.ProductId,
 					Quantity = item.Quantity,
-					Product = product
+					Product =  product
 				});
 
 			
 				product.Quantity -= item.Quantity;
-				_productService.Update(product); // 34an a3ml Save the updated quantity
+				_productService.UpdateQuantityAsync(product.Id, product.Quantity);
 			}
 
 			var order = new Order
@@ -84,13 +84,13 @@ namespace e_commerce.Controllers
 				OrderProducts = orderProducts
 			};
 
-			_orderService.Add(order);
+			_orderService.AddAsync(order);
 			return Ok("Order added successfully.");
 		}
 		[HttpGet]
 		public IActionResult GetAll()
 		{
-		var orders=_orderService.GetAll();
+		var orders=_orderService.GetAllAsync();
 			return Ok(orders);
 		}
 

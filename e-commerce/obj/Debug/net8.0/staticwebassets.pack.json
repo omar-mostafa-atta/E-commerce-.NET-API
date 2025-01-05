@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "F:\\omarapi\\e-commerce\\e-commerce\\wwwroot\\Images\\ProductImages\\bc4bcaee-9bd9-4db3-a56b-43fed15999a1.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductImages\\bc4bcaee-9bd9-4db3-a56b-43fed15999a1.jpg"
+    },
+    {
+      "Id": "F:\\omarapi\\e-commerce\\e-commerce\\wwwroot\\Images\\ProductImages\\e8454203-61f7-4c8f-8c10-1e1ea042bddb.jpg",
+      "PackagePath": "staticwebassets\\Images\\ProductImages\\e8454203-61f7-4c8f-8c10-1e1ea042bddb.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.e-commerce.props",
+      "PackagePath": "build\\e-commerce.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.e-commerce.props",
+      "PackagePath": "buildMultiTargeting\\e-commerce.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.e-commerce.props",
+      "PackagePath": "buildTransitive\\e-commerce.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.e-commerce.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace E_commerce.Repository.GenericRepository
@@ -20,48 +19,60 @@ namespace E_commerce.Repository.GenericRepository
 			_dbSet = _context.Set<TEntity>();
 		}
 
-		public IEnumerable<TEntity> GetAll()=>_dbSet.AsNoTracking().ToList();//AsNoTracking() makes the search faster ya a5oia
+		public async Task<IEnumerable<TEntity>> GetAllAsync()
+		{
+			return await _dbSet.AsNoTracking().ToListAsync(); // Asynchronous version of GetAll
+		}
+
 		public IQueryable<TEntity> GetAllQueryable()
 		{
 			return _dbSet; // Allows for further querying with Includes
 		}
 
-		public TEntity GetById(int id)=> _dbSet.Find(id);
-		
-		public TEntity GetById(string id)=> _dbSet.Find(id);
-		
-
-		public void Add(TEntity entity)
+		public async Task<TEntity> GetByIdAsync(int id)
 		{
-
-			_dbSet.Add(entity);
-			_context.SaveChanges();
-
+			return await _dbSet.FindAsync(id); // Async version of Find
 		}
-		public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)=> _dbSet.Where(predicate);
 
-		public void Update(TEntity entity)
+		public async Task<TEntity> GetByIdAsync(string id)
+		{
+			return await _dbSet.FindAsync(id); // Async version of Find
+		}
+
+		public async Task AddAsync(TEntity entity)
+		{
+			await _dbSet.AddAsync(entity); // Async version of Add
+			await _context.SaveChangesAsync(); // Async version of SaveChanges
+		}
+
+		public async Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate)
+		{
+			return await _dbSet.Where(predicate).ToListAsync(); // Async version of Where
+		}
+
+		public async Task UpdateAsync(TEntity entity)
 		{
 			_dbSet.Update(entity);
-			_context.SaveChanges();
+			await _context.SaveChangesAsync(); // Async version of SaveChanges
 		}
 
-		public void Delete(int id)
+		public async Task DeleteAsync(int id)
 		{
-			var entity = _dbSet.Find(id);
+			var entity = await _dbSet.FindAsync(id); // Async version of Find
 			if (entity != null)
 			{
 				_dbSet.Remove(entity);
-				_context.SaveChanges();
+				await _context.SaveChangesAsync(); // Async version of SaveChanges
 			}
 		}
-		public void Delete(string id)
+
+		public async Task DeleteAsync(string id)
 		{
-			var entity = _dbSet.Find(id);
+			var entity = await _dbSet.FindAsync(id); // Async version of Find
 			if (entity != null)
 			{
 				_dbSet.Remove(entity);
-				_context.SaveChanges();
+				await _context.SaveChangesAsync(); // Async version of SaveChanges
 			}
 		}
 	}

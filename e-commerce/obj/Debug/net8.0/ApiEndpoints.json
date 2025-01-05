@@ -8,7 +8,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "CategoryDto",
+        "Name": "categoryDto",
         "Type": "E_commerce.Core.DTO.CategoryDTO",
         "IsRequired": true
       }
@@ -34,7 +34,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Id",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -50,7 +50,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Id",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -66,29 +66,13 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Id",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       },
       {
-        "Name": "CategoryFromRequest",
+        "Name": "categoryFromRequest",
         "Type": "E_commerce.Core.DTO.CategoryDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "e_commerce.Controllers.LoginController",
-    "Method": "Login",
-    "RelativePath": "api/Login",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "UserFromRequest",
-        "Type": "E_commerce.Core.DTO.LoginDTO",
         "IsRequired": true
       }
     ],
@@ -105,6 +89,22 @@
       {
         "Name": "request",
         "Type": "E_commerce.Core.DTO.ForgotPasswordDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.LoginController",
+    "Method": "Login",
+    "RelativePath": "api/Login/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserFromRequest",
+        "Type": "E_commerce.Core.DTO.LoginDTO",
         "IsRequired": true
       }
     ],
@@ -193,9 +193,49 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "productDto",
-        "Type": "E_commerce.API.DTO.ProductDto",
-        "IsRequired": true
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Brand",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Feedback",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Quantity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Price",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Images",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile[]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -208,6 +248,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.ProductController",
+    "Method": "GetByCategoryId",
+    "RelativePath": "api/Product/GetByCategoryId/{categoryId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -229,20 +285,60 @@
   {
     "ContainingType": "e_commerce.Controllers.ProductController",
     "Method": "Update",
-    "RelativePath": "api/Product/Update/{Id}",
+    "RelativePath": "api/Product/Update/{id}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Id",
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       },
       {
-        "Name": "productFromRequest",
-        "Type": "E_commerce.API.DTO.ProductDto",
-        "IsRequired": true
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Brand",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Feedback",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Quantity",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Price",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Image",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Images",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile[]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

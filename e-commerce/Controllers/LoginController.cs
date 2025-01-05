@@ -30,7 +30,7 @@ namespace e_commerce.Controllers
 		}
 
 
-		[HttpPost]
+		[HttpPost("Login")]
 		public async Task<IActionResult> Login(LoginDTO UserFromRequest)
 		{
 			ApplicationUser userfromdb = await userManager.FindByNameAsync(UserFromRequest.UserName);

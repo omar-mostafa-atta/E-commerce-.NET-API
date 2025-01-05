@@ -152,3 +152,4 @@ F:\omarapi\e-commerce\e-commerce\bin\Debug\net8.0\AutoMapper.Extensions.Microsof
 F:\omarapi\e-commerce\e-commerce\bin\Debug\net8.0\Microsoft.AspNet.Identity.Core.dll
 F:\omarapi\e-commerce\e-commerce\bin\Debug\net8.0\FluentEmail.Core.dll
 F:\omarapi\e-commerce\e-commerce\bin\Debug\net8.0\FluentEmail.Smtp.dll
+F:\omarapi\e-commerce\e-commerce\bin\Debug\net8.0\e-commerce.staticwebassets.runtime.json

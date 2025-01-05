@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+
  
 namespace E_commerce.Services.Services.ImageService
 {
@@ -12,37 +13,68 @@ namespace E_commerce.Services.Services.ImageService
 			_webHostEnvironment = webHostEnvironment;
 		}
 
-		public async Task DeleteFileAsync(string FilePath)
-		{
-			if (FilePath != null)
-			{
-				var RootPath = _webHostEnvironment.WebRootPath;
-				var oldFile = Path.Combine(RootPath, FilePath);
 
-				if (System.IO.File.Exists(oldFile))
+		//public async Task<string> SaveImageAsync(IFormFile Img, string folderPath)
+		//{
+		//	if (Img == null || Img.Length == 0)
+		//	{
+		//		return null;
+		//	}
+
+		//	string fileName = Guid.NewGuid().ToString();
+		//	string extension = Path.GetExtension(Img.FileName);
+		//	string filePath = Path.Combine(_webHostEnvironment.WebRootPath, folderPath, fileName + extension);
+
+		//	using (var fileStream = new FileStream(filePath, FileMode.Create))
+		//	{
+		//		await Img.CopyToAsync(fileStream);
+		//	}
+
+		//	return Path.Combine(folderPath, fileName + extension);
+		//}
+		public async Task<string> SaveImageAsync(IFormFile file, string folderPath)
+		{
+			if (!Directory.Exists(folderPath))
+			{
+				Directory.CreateDirectory(folderPath);
+			}
+
+			string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+			string filePath = Path.Combine(folderPath, fileName);
+
+			using (var stream = new FileStream(filePath, FileMode.Create))
+			{
+				await file.CopyToAsync(stream);
+			}
+
+			return Path.Combine("Images/ProductImages", fileName); // Return relative path
+		}
+
+		public async Task DeleteFileAsync(string? filePath)
+		{
+			if (!string.IsNullOrEmpty(filePath))
+			{
+				string absolutePath = Path.Combine("wwwroot", filePath);
+				if (File.Exists(absolutePath))
 				{
-					System.IO.File.Delete(oldFile);
+					File.Delete(absolutePath);
 				}
 			}
 		}
 
-		public async Task<string> SaveImageAsync(IFormFile Img, string folderPath)
-		{
-			if (Img == null || Img.Length == 0)
-			{
-				return null;
-			}
 
-			string fileName = Guid.NewGuid().ToString();
-			string extension = Path.GetExtension(Img.FileName);
-			string filePath = Path.Combine(_webHostEnvironment.WebRootPath, folderPath, fileName + extension);
+		//public async Task DeleteFileAsync(string FilePath)
+		//{
+		//	if (FilePath != null)
+		//	{
+		//		var RootPath = _webHostEnvironment.WebRootPath;
+		//		var oldFile = Path.Combine(RootPath, FilePath);
 
-			using (var fileStream = new FileStream(filePath, FileMode.Create))
-			{
-				await Img.CopyToAsync(fileStream);
-			}
-
-			return Path.Combine(folderPath, fileName + extension);
-		}
+		//		if (System.IO.File.Exists(oldFile))
+		//		{
+		//			System.IO.File.Delete(oldFile);
+		//		}
+		//	}
+		//}
 	}
 }

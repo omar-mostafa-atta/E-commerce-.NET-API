@@ -12,6 +12,6 @@ namespace E_commerce.API.DTO
 		public decimal Price { get; set; }
 		public string? Image { get; set; }
 		public int CategoryId { get; set; }
-		public IFormFile Images { get; set; }
+		public IFormFile[]? Images { get; set; }
 	}
 }

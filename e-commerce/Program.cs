@@ -13,6 +13,7 @@ using System.Net.Mail;
 using System.Net;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
+using E_commerce.Services.Services.ImageService;
 
 namespace e_commerce
 {
@@ -29,6 +30,7 @@ namespace e_commerce
 			builder.Services.AddScoped<IProductService, ProductService>();
 			builder.Services.AddScoped<ICategoryService, CategoryService>();
 			builder.Services.AddScoped<IOrderService, OrderService>();
+			builder.Services.AddScoped<IImageService, ImageService>();
 			builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 			// Database configuration

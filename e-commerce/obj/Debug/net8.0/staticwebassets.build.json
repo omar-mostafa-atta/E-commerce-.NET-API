@@ -1,11 +1,58 @@
 {
   "Version": 1,
-  "Hash": "UFTKO5MZIvFz7ELKfYpH5QX2v+ZtVFoRMFqEf0GOyoU=",
+  "Hash": "tcOVsK7RJn5Glv3SHk6zC1erUQv5sTTtjNuBrOcKUMA=",
   "Source": "e-commerce",
   "BasePath": "_content/e-commerce",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "e-commerce\\wwwroot",
+      "Source": "e-commerce",
+      "ContentRoot": "F:\\omarapi\\e-commerce\\e-commerce\\wwwroot\\",
+      "BasePath": "_content/e-commerce",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "F:\\omarapi\\e-commerce\\e-commerce\\wwwroot\\Images\\ProductImages\\bc4bcaee-9bd9-4db3-a56b-43fed15999a1.jpg",
+      "SourceId": "e-commerce",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\omarapi\\e-commerce\\e-commerce\\wwwroot\\",
+      "BasePath": "_content/e-commerce",
+      "RelativePath": "Images/ProductImages/bc4bcaee-9bd9-4db3-a56b-43fed15999a1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\ProductImages\\bc4bcaee-9bd9-4db3-a56b-43fed15999a1.jpg"
+    },
+    {
+      "Identity": "F:\\omarapi\\e-commerce\\e-commerce\\wwwroot\\Images\\ProductImages\\e8454203-61f7-4c8f-8c10-1e1ea042bddb.jpg",
+      "SourceId": "e-commerce",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\omarapi\\e-commerce\\e-commerce\\wwwroot\\",
+      "BasePath": "_content/e-commerce",
+      "RelativePath": "Images/ProductImages/e8454203-61f7-4c8f-8c10-1e1ea042bddb.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\ProductImages\\e8454203-61f7-4c8f-8c10-1e1ea042bddb.jpg"
+    }
+  ]
 }

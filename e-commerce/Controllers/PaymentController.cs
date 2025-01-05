@@ -26,7 +26,7 @@ namespace E_commerce.Controllers
 
 		[HttpPost]
 		[Authorize]
-		public IActionResult ProcessPayment(PaymentDTO paymentFromRequest)
+		public async Task<IActionResult> ProcessPayment(PaymentDTO paymentFromRequest)
 		{
 			var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
@@ -37,7 +37,7 @@ namespace E_commerce.Controllers
 				return BadRequest(ModelState);
 
 			 
-			var order = _orderService.GetById(paymentFromRequest.OrderId);
+			var order = await _orderService.GetByIdAsync(paymentFromRequest.OrderId);
 			if (order == null || order.UserId != userId)
 				return BadRequest("Order not found or does not belong to the user.");
 

@@ -1,20 +1,18 @@
 ﻿using E_commerce.Core.Models;
 using Microsoft.AspNetCore.Http;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace E_commerce.Services.Services.ProductService
 {
 	public interface IProductService
 	{
-		IEnumerable<Product> GetAll();
-		Product GetById(int id);
-		void Add(Product product, IFormFile images);
-		void Update(Product product, IFormFile? images);
-		void Delete(int id);
-		IEnumerable<Product> GetByCategoryId(int Categoryid);
+		Task<IEnumerable<Product>> GetAllAsync();
+		Task<Product> GetByIdAsync(int id);
+		Task AddAsync(Product product, IFormFile[]? images);
+		Task UpdateAsync(Product product, IFormFile[]? images);
+		Task UpdateQuantityAsync(int productId, int newQuantity);
+		Task DeleteAsync(int id);
+		Task<IEnumerable<Product>> GetByCategoryIdAsync(int categoryId);
 	}
 }
