@@ -2,10 +2,9 @@
 using E_commerce.Repository.GenericRepository;
 using E_commerce.Services.Services.ImageService;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace E_commerce.Services.Services.ProductService
 {
@@ -22,15 +21,18 @@ namespace E_commerce.Services.Services.ProductService
 			_imageService = imageService;
 		}
 
-		public async Task<IEnumerable<Product>> GetAllAsync()
+		public IQueryable<Product> GetAllAsync()
 		{
-			return await _productRepository.GetAllAsync();
+			return _productRepository.GetAllQueryable();
 		}
+
 
 		public async Task<Product> GetByIdAsync(int id)
 		{
 			return await _productRepository.GetByIdAsync(id);
 		}
+
+
 
 		public async Task<IEnumerable<Product>> GetByCategoryIdAsync(int categoryId)
 		{

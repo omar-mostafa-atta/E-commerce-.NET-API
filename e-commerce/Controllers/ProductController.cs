@@ -5,6 +5,8 @@ using E_commerce.Services.Services.CategoryService;
 using E_commerce.Services.Services.ProductService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace e_commerce.Controllers
 {
@@ -32,7 +34,7 @@ namespace e_commerce.Controllers
 			var product = _mapper.Map<Product>(productDto);
 
 			await _productService.AddAsync(product, productDto.Images);
-			
+
 			return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
 		}
 
@@ -43,28 +45,63 @@ namespace e_commerce.Controllers
 		[HttpPost("Update/{id}")]
 		public async Task<IActionResult> Update(int id, [FromForm] ProductDto productDto)
 		{
-			var productFromDb = await _productService.GetByIdAsync(id); // Use async method
+			var productFromDb = await _productService.GetByIdAsync(id);
 			if (productFromDb == null)
 			{
 				return NotFound("No Product With this Id");
 			}
 
 			_mapper.Map(productDto, productFromDb);
-			await _productService.UpdateAsync(productFromDb, productDto.Images); // Await the async call
+			await _productService.UpdateAsync(productFromDb, productDto.Images);
 			return Ok();
 		}
 
+
+
 		[HttpGet("GetAll")]
-		public async Task<IActionResult> GetAll()
+		public async Task<IActionResult> GetAll(string? sortOrder, int pageNumber = 1, int pageSize = 10)
 		{
-			var products = await _productService.GetAllAsync(); // Use async method
-			return Ok(products);
+			var query = _productService.GetAllAsync();
+
+
+			switch (sortOrder)
+			{
+				case "A-Z_des":
+					query = query.OrderByDescending(p => p.Name);
+					break;
+				case "price_asc":
+					query = query.OrderBy(p => p.Price);
+					break;
+				case "price_des":
+					query = query.OrderByDescending(p => p.Price);
+					break;
+				default:
+					query = query.OrderBy(p => p.Name);
+					break;
+			}
+
+			var totalCount = await query.CountAsync();
+			var totalPages = (int)Math.Ceiling((decimal)totalCount / pageSize);
+
+			if (pageNumber > totalPages) { pageNumber = totalPages; }
+
+
+			var productsPerPage = await query
+			.Skip((pageNumber - 1) * pageSize)
+			.Take(pageSize)
+			.ToListAsync();
+			return Ok(productsPerPage);
+
 		}
+
+
+
+
 
 		[HttpGet("GetById/{id}")]
 		public async Task<IActionResult> GetById(int id)
 		{
-			var product = await _productService.GetByIdAsync(id); // Use async method
+			var product = await _productService.GetByIdAsync(id);
 			if (product == null)
 			{
 				return NotFound("No Product With this Id");

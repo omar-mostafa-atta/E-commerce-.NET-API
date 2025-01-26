@@ -213,7 +213,19 @@ namespace E_commerce.Repository.Data.Migrations
                     b.Property<string>("Feedback")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
+                    b.Property<string>("Img1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Img2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Img3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Img4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Img5")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

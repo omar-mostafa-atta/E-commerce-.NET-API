@@ -69,9 +69,9 @@ namespace e_commerce.Controllers
 		[HttpGet("GetAllProductsInTheCategory/{Id}")]
 		public async Task<IActionResult> GetAllProductsInTheCategory(int id)
 		{
-			var allProducts = await _productService.GetAllAsync(); // Await async method to get IEnumerable<Product>
-			var categoryProducts = allProducts.Where(x => x.CategoryId == id);
-			return Ok(categoryProducts);
+			var allProducts = await _productService.GetByCategoryIdAsync(id); // Await async method to get IEnumerable<Product>
+			//var categoryProducts = allProducts.Where(x => x.CategoryId == id);
+			return Ok(allProducts);
 		}
 
 	}

@@ -116,7 +116,7 @@ namespace e_commerce
 				}
 			}
 
-			var adminEmail = "admin@example.com";
+			var adminEmail = "admin@admin.com";
 			var adminUser = await userManager.FindByEmailAsync(adminEmail);
 			if (adminUser == null)
 			{

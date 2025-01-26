@@ -1,10 +1,7 @@
 ﻿using E_commerce.Repository.Data;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
+
 
 namespace E_commerce.Repository.GenericRepository
 {
@@ -21,44 +18,46 @@ namespace E_commerce.Repository.GenericRepository
 
 		public async Task<IEnumerable<TEntity>> GetAllAsync()
 		{
-			return await _dbSet.AsNoTracking().ToListAsync(); // Asynchronous version of GetAll
+		
+			return await _dbSet.AsNoTracking().ToListAsync(); 
 		}
 
+		
 		public IQueryable<TEntity> GetAllQueryable()
 		{
-			return _dbSet; // Allows for further querying with Includes
+			return _dbSet.AsQueryable(); 
 		}
 
 		public async Task<TEntity> GetByIdAsync(int id)
 		{
-			return await _dbSet.FindAsync(id); // Async version of Find
+			return await _dbSet.FindAsync(id); 
 		}
 
 		public async Task<TEntity> GetByIdAsync(string id)
 		{
-			return await _dbSet.FindAsync(id); // Async version of Find
+			return await _dbSet.FindAsync(id); 
 		}
 
 		public async Task AddAsync(TEntity entity)
 		{
-			await _dbSet.AddAsync(entity); // Async version of Add
-			await _context.SaveChangesAsync(); // Async version of SaveChanges
+			await _dbSet.AddAsync(entity); 
+			await _context.SaveChangesAsync(); 
 		}
 
 		public async Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate)
 		{
-			return await _dbSet.Where(predicate).ToListAsync(); // Async version of Where
+			return await _dbSet.Where(predicate).ToListAsync(); 
 		}
 
 		public async Task UpdateAsync(TEntity entity)
 		{
 			_dbSet.Update(entity);
-			await _context.SaveChangesAsync(); // Async version of SaveChanges
+			await _context.SaveChangesAsync();
 		}
 
 		public async Task DeleteAsync(int id)
 		{
-			var entity = await _dbSet.FindAsync(id); // Async version of Find
+			var entity = await _dbSet.FindAsync(id); 
 			if (entity != null)
 			{
 				_dbSet.Remove(entity);

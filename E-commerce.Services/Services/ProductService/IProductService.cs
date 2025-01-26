@@ -7,8 +7,9 @@ namespace E_commerce.Services.Services.ProductService
 {
 	public interface IProductService
 	{
-		Task<IEnumerable<Product>> GetAllAsync();
+		IQueryable<Product> GetAllAsync();
 		Task<Product> GetByIdAsync(int id);
+	
 		Task AddAsync(Product product, IFormFile[]? images);
 		Task UpdateAsync(Product product, IFormFile[]? images);
 		Task UpdateQuantityAsync(int productId, int newQuantity);
