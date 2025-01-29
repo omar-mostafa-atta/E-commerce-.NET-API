@@ -33,28 +33,28 @@ namespace e_commerce.Controllers
 
 			var category = _mapper.Map<Category>(categoryDto);
 
-			await _categoryService.AddAsync(category); // Await async method
+			await _categoryService.AddAsync(category); 
 			return CreatedAtAction(nameof(GetById), new { id = category.Id }, category);
 		}
 
 		[HttpPost("UpdateCategory/{Id}")]
 		public async Task<IActionResult> Update(int id, CategoryDTO categoryFromRequest)
 		{
-			var category = await _categoryService.GetByIdAsync(id); // Await async method
+			var category = await _categoryService.GetByIdAsync(id); 
 			if (category == null)
-				return NotFound(); // Handle the case where the category is not found
+				return NotFound(); 
 
 			_mapper.Map(categoryFromRequest, category);
-			await _categoryService.UpdateAsync(category); // Await async method
+			await _categoryService.UpdateAsync(category); 
 			return Ok(category);
 		}
 
 		[HttpGet("GetByID/{Id}")]
 		public async Task<IActionResult> GetById(int id)
 		{
-			var category = await _categoryService.GetByIdAsync(id); // Await async method
+			var category = await _categoryService.GetByIdAsync(id); 
 			if (category == null)
-				return NotFound(); // Handle the case where the category is not found
+				return NotFound(); 
 
 			return Ok(category);
 		}
@@ -62,15 +62,15 @@ namespace e_commerce.Controllers
 		[HttpGet("GetAll")]
 		public async Task<IActionResult> GetAll()
 		{
-			var categories = await _categoryService.GetAllAsync(); // Await async method
+			var categories = await _categoryService.GetAllAsync(); 
 			return Ok(categories);
 		}
 
 		[HttpGet("GetAllProductsInTheCategory/{Id}")]
 		public async Task<IActionResult> GetAllProductsInTheCategory(int id)
 		{
-			var allProducts = await _productService.GetByCategoryIdAsync(id); // Await async method to get IEnumerable<Product>
-			//var categoryProducts = allProducts.Where(x => x.CategoryId == id);
+			var allProducts = await _productService.GetByCategoryIdAsync(id); 
+		
 			return Ok(allProducts);
 		}
 

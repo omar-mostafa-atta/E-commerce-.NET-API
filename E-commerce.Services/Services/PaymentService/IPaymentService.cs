@@ -1,16 +1,10 @@
-﻿using E_commerce.Core.Models;
-using E_commerce.Repository.GenericRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using E_commerce.Core.DTO;
+using Stripe.Checkout;
 
 namespace E_commerce.Services.Services.PaymentService
 {
 	public interface IPaymentService
 	{
-		void Add(Payment payment);
-		Payment GetByOrderId(int id);
+		Task<Session> CreateCheckoutSessionAsync(List<ProductQuantityDTO> products);
 	}
 }

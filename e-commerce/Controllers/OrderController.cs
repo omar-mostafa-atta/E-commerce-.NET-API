@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
-
+using E_commerce.Services.Services.PaymentService;
 
 namespace e_commerce.Controllers
 {
@@ -15,23 +15,29 @@ namespace e_commerce.Controllers
 	[ApiController]
 	public class OrderController : ControllerBase
 	{
-		private readonly UserManager<ApplicationUser> userManager;
+		private readonly UserManager<ApplicationUser> _userManager;
 		private readonly IOrderService _orderService;
-		private readonly IProductService _productService; // Assuming you have a service to fetch product details
+		private readonly IProductService _productService;
+		private readonly IPaymentService _paymentService;
 		private readonly IMapper _mapper;
-	 
 
-		public OrderController(IOrderService orderService, IProductService productService, IMapper mapper, UserManager<ApplicationUser> _userManager)
+		public OrderController(
+			IOrderService orderService,
+			IProductService productService,
+			IMapper mapper,
+			UserManager<ApplicationUser> userManager,
+			IPaymentService paymentService)
 		{
 			_orderService = orderService;
 			_productService = productService;
 			_mapper = mapper;
-			userManager = _userManager;
+			_userManager = userManager;
+			_paymentService = paymentService;
 		}
 
-		[HttpPost]
+		[HttpPost("create-order")]
 		[Authorize]
-		public async Task< IActionResult> AddOrder( OrderDTO orderFromRequest)
+		public async Task<IActionResult> CreateOrder([FromBody] OrderDTO orderFromRequest)
 		{
 			var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
@@ -40,20 +46,24 @@ namespace e_commerce.Controllers
 				return Unauthorized("User not authenticated.");
 			}
 
-			if (orderFromRequest == null)
-			{
-				return BadRequest("Order cannot be null, and UserId must be valid.");
-			}
-
-			if (!ModelState.IsValid)
+			if (orderFromRequest == null || !ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
 
+			// b3ml Create l Stripe checkout session
+			var session = await _paymentService.CreateCheckoutSessionAsync(orderFromRequest.ProductQuantities);
+
+			if (session == null)
+			{
+				return BadRequest("Failed to create Stripe checkout session.");
+			}
+
+	 
 			var orderProducts = new List<OrderProduct>();
 			foreach (var item in orderFromRequest.ProductQuantities)
 			{
-				var product = await _productService.GetByIdAsync(item.ProductId); // Fetch product details
+				var product = await _productService.GetByIdAsync(item.ProductId);
 				if (product == null)
 				{
 					return BadRequest($"Product with ID {item.ProductId} not found.");
@@ -61,38 +71,41 @@ namespace e_commerce.Controllers
 
 				if (item.Quantity > product.Quantity)
 				{
-					return BadRequest($"No enough quantity for product {product.Name}. You Requested: {item.Quantity}, Available only: {product.Quantity}");
+					return BadRequest($"Not enough quantity for product {product.Name}. You requested: {item.Quantity}, available only: {product.Quantity}");
 				}
 
-				
 				orderProducts.Add(new OrderProduct
 				{
 					ProductId = item.ProductId,
 					Quantity = item.Quantity,
-					Product =  product
+					Product = product
 				});
 
-			
+
 				product.Quantity -= item.Quantity;
-				_productService.UpdateQuantityAsync(product.Id, product.Quantity);
+				await _productService.UpdateQuantityAsync(product.Id, product.Quantity);
 			}
 
+		 
 			var order = new Order
 			{
 				UserId = userId,
 				TotalPrice = orderFromRequest.TotalPrice,
-				OrderProducts = orderProducts
+				OrderProducts = orderProducts,
+				SessionId = session.Id  
 			};
 
-			_orderService.AddAsync(order);
-			return Ok("Order added successfully.");
-		}
-		[HttpGet]
-		public IActionResult GetAll()
-		{
-		var orders=_orderService.GetAllAsync();
-			return Ok(orders);
+			await _orderService.AddAsync(order);
+
+		 
+			return Ok(new { sessionId = session.Id });
 		}
 
+		[HttpGet]
+		public async Task<IActionResult> GetAll()
+		{
+			var orders = await _orderService.GetAllAsync();
+			return Ok(orders);
+		}
 	}
 }

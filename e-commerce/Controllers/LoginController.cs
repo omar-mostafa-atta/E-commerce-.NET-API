@@ -67,7 +67,7 @@ namespace e_commerce.Controllers
 			var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:SecurityKey"]));
 			var SignCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-			//ading token claims
+			 
 			JwtSecurityToken MyToken = new JwtSecurityToken(
 				issuer: config["JWT:IssureIP"],
 				audience: config["JWT:AudienceIP"],//dh fe case eno ANGULAR 

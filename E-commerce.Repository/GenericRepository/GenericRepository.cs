@@ -61,17 +61,17 @@ namespace E_commerce.Repository.GenericRepository
 			if (entity != null)
 			{
 				_dbSet.Remove(entity);
-				await _context.SaveChangesAsync(); // Async version of SaveChanges
+				await _context.SaveChangesAsync(); 
 			}
 		}
 
 		public async Task DeleteAsync(string id)
 		{
-			var entity = await _dbSet.FindAsync(id); // Async version of Find
+			var entity = await _dbSet.FindAsync(id);  
 			if (entity != null)
 			{
 				_dbSet.Remove(entity);
-				await _context.SaveChangesAsync(); // Async version of SaveChanges
+				await _context.SaveChangesAsync();  
 			}
 		}
 	}

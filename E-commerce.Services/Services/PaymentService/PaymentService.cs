@@ -1,32 +1,48 @@
-﻿using E_commerce.Core.Models;
-using E_commerce.Repository.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Stripe;
+using Stripe.Checkout;
+using E_commerce.Core.DTO;
 
 namespace E_commerce.Services.Services.PaymentService
 {
-	public class PaymentService:IPaymentService 
+	public class PaymentService : IPaymentService
 	{
-		private readonly E_commerceContext _context;
-
-		public PaymentService(E_commerceContext context)
+		public PaymentService()
 		{
-			_context = context;
+			StripeConfiguration.ApiKey = "your_stripe_secret_key";  
 		}
 
-		public void Add(Payment payment)
+		public async Task<Session> CreateCheckoutSessionAsync(List<ProductQuantityDTO> products)
 		{
-			_context.Payment.Add(payment);
-			_context.SaveChanges();
-		}
+			var lineItems = new List<SessionLineItemOptions>();
 
-		public Payment GetByOrderId(int orderId)
-		{
-			return _context.Payment.FirstOrDefault(p => p.OrderId == orderId);
-		}
+			foreach (var product in products)
+			{
+				lineItems.Add(new SessionLineItemOptions
+				{
+					PriceData = new SessionLineItemPriceDataOptions
+					{
+						UnitAmount = (long)(product.Price * 100),  
+						Currency = "usd",
+						ProductData = new SessionLineItemPriceDataProductDataOptions
+						{
+							Name = product.ProductName,
+						},
+					},
+					Quantity = product.Quantity,
+				});
+			}
 
+			var options = new SessionCreateOptions
+			{
+				PaymentMethodTypes = new List<string> { "card" },
+				LineItems = lineItems,
+				Mode = "payment",
+				SuccessUrl = "https://localhost:4200/success", 
+				CancelUrl = "https://localhost:4200/cancel",   
+			};
+
+			var service = new SessionService();
+			return await service.CreateAsync(options);
+		}
 	}
 }

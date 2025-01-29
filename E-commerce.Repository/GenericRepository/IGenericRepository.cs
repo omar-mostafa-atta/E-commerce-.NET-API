@@ -13,6 +13,6 @@ namespace E_commerce.Repository.GenericRepository
 		Task DeleteAsync(int id);
 		Task DeleteAsync(string id);
 		Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate);
-		IQueryable<TEntity> GetAllQueryable(); // Keep as is if no async processing is needed
+		IQueryable<TEntity> GetAllQueryable();
 	}
 }

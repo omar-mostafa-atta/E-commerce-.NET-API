@@ -10,6 +10,7 @@ namespace E_commerce.Services.Services.OrderService
 	public interface IOrderService
 	{
 		Task <IEnumerable<Order>> GetAllAsync();
+		Task<IQueryable<Order>> GetAllQueryable();
 		Task<Order> GetByIdAsync(int id);
 		Task AddAsync(Order order);
 		Task UpdateAsync(Order order);

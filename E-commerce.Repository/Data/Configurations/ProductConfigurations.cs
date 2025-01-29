@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace E_commerce.Repository.Data.Configurations
 {
-	//Using fluentApi to make the configurations  
+	
 	internal class ProductConfigurations : IEntityTypeConfiguration<Product>
 	{
 		public void Configure(EntityTypeBuilder<Product> builder)

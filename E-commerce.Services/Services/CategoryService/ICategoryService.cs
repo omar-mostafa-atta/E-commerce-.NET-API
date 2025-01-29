@@ -9,6 +9,7 @@ namespace E_commerce.Services.Services.CategoryService
 	public interface ICategoryService
 	{
 		Task<IEnumerable<Category>> GetAllAsync();
+		IQueryable<Category> GetAllQueryable();
 		Task<Category> GetByIdAsync(int id);
 		Task AddAsync(Category category);
 		Task UpdateAsync(Category category);

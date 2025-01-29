@@ -42,21 +42,21 @@ namespace e_commerce.Controllers
 		[HttpGet("GetUserRoles/{username}")]
 		public async Task<IActionResult> GetUserRoles(string username)
 		{
-			// Find the user by username
+		 
 			var user = await _userManager.FindByNameAsync(username);
 			if (user == null)
 			{
 				return NotFound(new { Message = "User not found" });
 			}
 
-			// Get the roles for the user
+		 
 			var roles = await _userManager.GetRolesAsync(user);
 			if (roles == null || roles.Count == 0)
 			{
 				return NotFound(new { Message = "User has no roles assigned" });
 			}
 
-			// Return the roles
+	 
 			return Ok(new
 			{
 				Username = username,

@@ -14,6 +14,8 @@ using System.Net;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using E_commerce.Services.Services.ImageService;
+using Stripe;
+using ProductService = E_commerce.Services.Services.ProductService.ProductService;
 
 namespace e_commerce
 {
@@ -23,7 +25,7 @@ namespace e_commerce
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
-			// Add services to the container
+		 
 			builder.Services.AddControllers();
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
@@ -33,11 +35,22 @@ namespace e_commerce
 			builder.Services.AddScoped<IImageService, ImageService>();
 			builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
-			// Database configuration
+			StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
+			builder.Services.AddCors(options =>
+			{
+				options.AddDefaultPolicy(builder =>
+				{
+					builder.AllowAnyOrigin()
+						.AllowAnyHeader()
+						.AllowAnyMethod();
+				});
+			});
+			builder.Services.AddRouting(options => options.LowercaseUrls = true);
+			 
 			builder.Services.AddDbContext<E_commerceContext>(options =>
 				options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-			// Identity configuration
+		 
 			builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<E_commerceContext>().AddDefaultTokenProviders();
 
 			builder.Services
@@ -52,7 +65,7 @@ namespace e_commerce
 
 
 
-			// Authentication configuration
+	  
 			builder.Services.AddAuthentication(options =>
 			{
 				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -78,7 +91,7 @@ namespace e_commerce
 
 			var app = builder.Build();
 
-			// Configure the HTTP request pipeline
+			 
 			if (app.Environment.IsDevelopment())
 			{
 				app.UseSwagger();
@@ -90,7 +103,7 @@ namespace e_commerce
 				var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 				var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-				// Call the method to seed roles and admin user
+			 
 				await SeedRolesAndAdminAsync(roleManager, userManager);
 			}
 
@@ -98,7 +111,8 @@ namespace e_commerce
 
 			app.UseAuthentication();
 			app.UseAuthorization();
-
+			app.UseCors();
+			app.UseRouting();
 			app.MapControllers();
 
 			app.Run();
