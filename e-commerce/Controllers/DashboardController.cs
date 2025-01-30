@@ -31,7 +31,7 @@ namespace e_commerce.Controllers
 		}
 
 		[HttpGet("GetProductsNumber")]
-		 
+		[Authorize(Roles = "Admin")]
 		public IActionResult GetNumberOfProducts()
 		{
 			var products=_productService.GetAllAsync();
@@ -40,7 +40,7 @@ namespace e_commerce.Controllers
 
 		}
 		[HttpGet("GetCategoriesNumber")]
-		 
+		[Authorize(Roles = "Admin")]
 		public IActionResult GetCategoriesNumber()
 		{
 
@@ -50,21 +50,43 @@ namespace e_commerce.Controllers
 			return Ok(num);	
 
 		}
-		[HttpGet("GetUserNumber")]
-		 
-		public async Task<IActionResult> GetUserNumber()
+		[HttpGet("GetUsersNumber")]
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> GetUsersNumber()
 		{
 			var userCount = await _userManager.Users.CountAsync();
 			return Ok(new { UserCount = userCount });
 		}
 
 		[HttpGet("GetOrderNumber")]
-	 
+		[Authorize(Roles = "Admin")]
 		public IActionResult GetOrderNumber()
 		{
 			var order = _orderService.GetAllQueryable();
 			var num=order.Result.Count();
 			return Ok(num);
+		}
+
+		[HttpDelete("Delete User/{id}")]
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> DeleteUser(string id)
+		{
+			var user = await _userManager.FindByIdAsync(id);
+
+			if (user == null)
+			{
+				return NotFound("User not found.");
+			}
+
+			var result = await _userManager.DeleteAsync(user);
+
+			if (result.Succeeded)
+			{
+				return Ok($"User with ID {id} has been deleted successfully.");
+			}
+
+			return BadRequest("Failed to delete the user.");
+
 		}
 
 

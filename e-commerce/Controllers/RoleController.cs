@@ -8,6 +8,7 @@ namespace e_commerce.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[Authorize(Roles = "Admin")]
 	public class RoleController : ControllerBase
 	{
 		public readonly RoleManager<IdentityRole> _RoleManager;
@@ -42,7 +43,7 @@ namespace e_commerce.Controllers
 
 		[HttpGet("GetUserRoles/{username}")]
 		[Authorize(Roles = "Admin")]
-		public async Task<IActionResult> GetUserRoles(string username)
+		public async Task<IActionResult> GetUserRolesByName(string username)
 		{
 		 
 			var user = await _userManager.FindByNameAsync(username);
@@ -82,7 +83,7 @@ namespace e_commerce.Controllers
 
 
 
-		[HttpPost("AssignRole")]
+		[HttpPut("AssignRole")]
 		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> AssignRole(string userId, string roleName)
 		{
@@ -104,6 +105,25 @@ namespace e_commerce.Controllers
 			}
 
 			return BadRequest("Failed to assign role.");
+		}
+
+		[HttpDelete("Delete Role/{roleName}")]
+		[Authorize(Roles ="Admin")]
+		public async Task<IActionResult> DeleteRole(string roleName)
+		{
+			if (!await _RoleManager.RoleExistsAsync(roleName))
+			{
+				return BadRequest("Role does not exist.");
+			}
+			var role = await _RoleManager.FindByNameAsync(roleName);
+
+			var result = await _RoleManager.DeleteAsync(role);
+			if (result.Succeeded)
+			{
+				return Ok($"Role '{roleName}' has been deleted successfully.");
+			}
+
+			return BadRequest("Failed to delete the role.");
 		}
 
 

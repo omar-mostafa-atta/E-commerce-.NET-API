@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "e_commerce.Controllers.CategoryController",
+    "Method": "Delete",
+    "RelativePath": "api/category",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.CategoryController",
     "Method": "Add",
     "RelativePath": "api/category/addcategory",
     "HttpMethod": "POST",
@@ -61,7 +77,7 @@
     "ContainingType": "e_commerce.Controllers.CategoryController",
     "Method": "Update",
     "RelativePath": "api/category/updatecategory/{Id}",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -73,6 +89,22 @@
       {
         "Name": "categoryFromRequest",
         "Type": "E_commerce.Core.DTO.CategoryDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.DashboardController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/dashboard/delete user/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -110,8 +142,8 @@
   },
   {
     "ContainingType": "e_commerce.Controllers.DashboardController",
-    "Method": "GetUserNumber",
-    "RelativePath": "api/dashboard/getusernumber",
+    "Method": "GetUsersNumber",
+    "RelativePath": "api/dashboard/getusersnumber",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -204,6 +236,22 @@
         "Name": "orderDTO",
         "Type": "E_commerce.Core.DTO.OrderDTO",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.ProductController",
+    "Method": "Delete",
+    "RelativePath": "api/product",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -326,7 +374,7 @@
     "ContainingType": "e_commerce.Controllers.ProductController",
     "Method": "Update",
     "RelativePath": "api/product/update/{id}",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -435,7 +483,7 @@
     "ContainingType": "e_commerce.Controllers.RoleController",
     "Method": "AssignRole",
     "RelativePath": "api/role/assignrole",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -454,7 +502,23 @@
   },
   {
     "ContainingType": "e_commerce.Controllers.RoleController",
-    "Method": "GetUserRoles",
+    "Method": "DeleteRole",
+    "RelativePath": "api/role/delete role/{roleName}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roleName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.RoleController",
+    "Method": "GetUserRolesByName",
     "RelativePath": "api/role/getuserroles/{username}",
     "HttpMethod": "GET",
     "IsController": true,

@@ -37,7 +37,7 @@
       }
     },
     "/api/category/updatecategory/{Id}": {
-      "post": {
+      "put": {
         "tags": [
           "Category"
         ],
@@ -136,6 +136,28 @@
         }
       }
     },
+    "/api/category": {
+      "delete": {
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/dashboard/getproductsnumber": {
       "get": {
         "tags": [
@@ -160,7 +182,7 @@
         }
       }
     },
-    "/api/dashboard/getusernumber": {
+    "/api/dashboard/getusersnumber": {
       "get": {
         "tags": [
           "Dashboard"
@@ -176,6 +198,28 @@
       "get": {
         "tags": [
           "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/dashboard/delete user/{id}": {
+      "delete": {
+        "tags": [
+          "Dashboard"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -441,7 +485,7 @@
       }
     },
     "/api/product/update/{id}": {
-      "post": {
+      "put": {
         "tags": [
           "Product"
         ],
@@ -625,6 +669,28 @@
         }
       }
     },
+    "/api/product": {
+      "delete": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/register": {
       "post": {
         "tags": [
@@ -763,7 +829,7 @@
       }
     },
     "/api/role/assignrole": {
-      "post": {
+      "put": {
         "tags": [
           "Role"
         ],
@@ -778,6 +844,28 @@
           {
             "name": "roleName",
             "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/role/delete role/{roleName}": {
+      "delete": {
+        "tags": [
+          "Role"
+        ],
+        "parameters": [
+          {
+            "name": "roleName",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string"
             }

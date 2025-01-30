@@ -6,6 +6,7 @@ using E_commerce.Services.Services.CategoryService;
 using E_commerce.Services.Services.ProductService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -39,7 +40,7 @@ namespace e_commerce.Controllers
 			return CreatedAtAction(nameof(GetById), new { id = category.Id }, category);
 		}
 
-		[HttpPost("UpdateCategory/{Id}")]
+		[HttpPut("UpdateCategory/{Id}")]
 		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Update(int id, CategoryDTO categoryFromRequest)
 		{
@@ -63,10 +64,33 @@ namespace e_commerce.Controllers
 		}
 
 		[HttpGet("GetAll")]
-		public async Task<IActionResult> GetAll()
+		public async Task<IActionResult> GetAll(string? sortOrder, int pageNumber = 1, int pageSize = 10)
 		{
-			var categories = await _categoryService.GetAllAsync(); 
-			return Ok(categories);
+			
+			var query = _categoryService.GetAllQueryable();
+
+			switch (sortOrder)
+			{
+				case "A-Z_des":
+					query = query.OrderByDescending(p => p.Name);
+					break;
+	
+				default:
+					query = query.OrderBy(p => p.Name);
+					break;
+			}
+
+			var totalCount = await query.CountAsync();
+			var totalPages = (int)Math.Ceiling((decimal)totalCount / pageSize);
+
+			if (pageNumber > totalPages) { pageNumber = totalPages; }
+
+
+			var categoriesPerPage = await query
+			.Skip((pageNumber - 1) * pageSize)
+			.Take(pageSize)
+			.ToListAsync();
+			return Ok(categoriesPerPage);
 		}
 
 		[HttpGet("GetAllProductsInTheCategory/{Id}")]
@@ -75,6 +99,18 @@ namespace e_commerce.Controllers
 			var allProducts = await _productService.GetByCategoryIdAsync(id); 
 		
 			return Ok(allProducts);
+		}
+
+		[HttpDelete]
+		public async Task<IActionResult> Delete(int id)
+		{
+			var category = await _categoryService.GetByIdAsync(id);
+			if (category == null)
+				return NotFound("No Category With this Id");
+
+			_categoryService.DeleteAsync(id);
+			return Ok("Category deleted");
+
 		}
 
 	}

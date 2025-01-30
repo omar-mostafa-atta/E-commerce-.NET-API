@@ -40,7 +40,7 @@ namespace e_commerce.Controllers
 
 
 
-		[HttpPost("Update/{id}")]
+		[HttpPut("Update/{id}")]
 		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Update(int id, [FromForm] ProductDto productDto)
 		{
@@ -115,6 +115,19 @@ namespace e_commerce.Controllers
 		{
 			var products = await _productService.GetByCategoryIdAsync(categoryId); // Use async method
 			return Ok(products);
+		}
+
+		[HttpDelete]
+		public async Task<IActionResult> Delete(int id)
+		{
+			var product = await _productService.GetByIdAsync(id);
+			if (product == null)
+			{
+				return NotFound("No Product With this Id");
+			}
+			_productService.DeleteAsync(id);
+			return Ok("Product Deleted");
+
 		}
 	}
 }
