@@ -118,6 +118,7 @@ namespace e_commerce.Controllers
 		}
 
 		[HttpDelete]
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Delete(int id)
 		{
 			var product = await _productService.GetByIdAsync(id);
