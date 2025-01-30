@@ -4,6 +4,7 @@ using E_commerce.Core.DTO;
 using E_commerce.Core.Models;
 using E_commerce.Services.Services.CategoryService;
 using E_commerce.Services.Services.ProductService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,6 +27,7 @@ namespace e_commerce.Controllers
 		}
 
 		[HttpPost("AddCategory")]
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Add(CategoryDTO categoryDto)
 		{
 			if (!ModelState.IsValid)
@@ -38,6 +40,7 @@ namespace e_commerce.Controllers
 		}
 
 		[HttpPost("UpdateCategory/{Id}")]
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Update(int id, CategoryDTO categoryFromRequest)
 		{
 			var category = await _categoryService.GetByIdAsync(id); 

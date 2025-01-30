@@ -65,8 +65,23 @@ namespace E_commerce.Services.Services.ProductService
 			await _productRepository.AddAsync(product);
 		}
 
-		public async Task UpdateAsync(Product product, IFormFile[]? images)
+		public async Task UpdateAsync(Product product, IFormFile[]? images, string[]? deleteImages)
 		{
+
+			if (deleteImages != null)
+			{
+				foreach (var imageToDelete in deleteImages)
+				{
+					await _imageService.DeleteFileAsync(imageToDelete);
+
+					if (product.Img1 == imageToDelete) product.Img1 = null;
+					else if (product.Img2 == imageToDelete) product.Img2 = null;
+					else if (product.Img3 == imageToDelete) product.Img3 = null;
+					else if (product.Img4 == imageToDelete) product.Img4 = null;
+					else if (product.Img5 == imageToDelete) product.Img5 = null;
+				}
+			}
+
 			if (images != null && images.Length > 0)
 			{
 				// Delete old images if necessary

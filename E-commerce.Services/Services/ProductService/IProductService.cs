@@ -11,7 +11,7 @@ namespace E_commerce.Services.Services.ProductService
 		Task<Product> GetByIdAsync(int id);
 	
 		Task AddAsync(Product product, IFormFile[]? images);
-		Task UpdateAsync(Product product, IFormFile[]? images);
+		Task UpdateAsync(Product product, IFormFile[]? images, string[]? deleteImages);
 		Task UpdateQuantityAsync(int productId, int newQuantity);
 		Task DeleteAsync(int id);
 		Task<IEnumerable<Product>> GetByCategoryIdAsync(int categoryId);

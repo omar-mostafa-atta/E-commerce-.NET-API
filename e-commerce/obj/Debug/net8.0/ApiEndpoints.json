@@ -2,7 +2,7 @@
   {
     "ContainingType": "e_commerce.Controllers.CategoryController",
     "Method": "Add",
-    "RelativePath": "api/Category/AddCategory",
+    "RelativePath": "api/category/addcategory",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -18,7 +18,7 @@
   {
     "ContainingType": "e_commerce.Controllers.CategoryController",
     "Method": "GetAll",
-    "RelativePath": "api/Category/GetAll",
+    "RelativePath": "api/category/getall",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -28,7 +28,7 @@
   {
     "ContainingType": "e_commerce.Controllers.CategoryController",
     "Method": "GetAllProductsInTheCategory",
-    "RelativePath": "api/Category/GetAllProductsInTheCategory/{Id}",
+    "RelativePath": "api/category/getallproductsinthecategory/{Id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -44,7 +44,7 @@
   {
     "ContainingType": "e_commerce.Controllers.CategoryController",
     "Method": "GetById",
-    "RelativePath": "api/Category/GetByID/{Id}",
+    "RelativePath": "api/category/getbyid/{Id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -60,7 +60,7 @@
   {
     "ContainingType": "e_commerce.Controllers.CategoryController",
     "Method": "Update",
-    "RelativePath": "api/Category/UpdateCategory/{Id}",
+    "RelativePath": "api/category/updatecategory/{Id}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -79,9 +79,49 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "e_commerce.Controllers.DashboardController",
+    "Method": "GetCategoriesNumber",
+    "RelativePath": "api/dashboard/getcategoriesnumber",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.DashboardController",
+    "Method": "GetOrderNumber",
+    "RelativePath": "api/dashboard/getordernumber",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.DashboardController",
+    "Method": "GetNumberOfProducts",
+    "RelativePath": "api/dashboard/getproductsnumber",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.DashboardController",
+    "Method": "GetUserNumber",
+    "RelativePath": "api/dashboard/getusernumber",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "e_commerce.Controllers.LoginController",
     "Method": "ForgotPassword",
-    "RelativePath": "api/Login/ForgotPassword",
+    "RelativePath": "api/login/forgotpassword",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -97,7 +137,7 @@
   {
     "ContainingType": "e_commerce.Controllers.LoginController",
     "Method": "Login",
-    "RelativePath": "api/Login/Login",
+    "RelativePath": "api/login/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -113,7 +153,7 @@
   {
     "ContainingType": "e_commerce.Controllers.LoginController",
     "Method": "ResetPassword",
-    "RelativePath": "api/Login/ResetPassword",
+    "RelativePath": "api/login/resetpassword",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -128,8 +168,18 @@
   },
   {
     "ContainingType": "e_commerce.Controllers.OrderController",
-    "Method": "AddOrder",
-    "RelativePath": "api/Order",
+    "Method": "GetAll",
+    "RelativePath": "api/order",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "e_commerce.Controllers.OrderController",
+    "Method": "CreateOrder",
+    "RelativePath": "api/order/create-order",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -143,42 +193,16 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "e_commerce.Controllers.OrderController",
-    "Method": "GetAll",
-    "RelativePath": "api/Order",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "E_commerce.Controllers.PaymentController",
-    "Method": "ProcessPayment",
-    "RelativePath": "api/Payment",
+    "ContainingType": "e_commerce.Controllers.PaymentController",
+    "Method": "CreateCheckoutSession",
+    "RelativePath": "api/payment/create-checkout-session",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "paymentFromRequest",
-        "Type": "E_commerce.Core.DTO.PaymentDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "E_commerce.Controllers.PaymentController",
-    "Method": "GetPaymentDetails",
-    "RelativePath": "api/Payment/{orderId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "orderId",
-        "Type": "System.Int32",
+        "Name": "orderDTO",
+        "Type": "E_commerce.Core.DTO.OrderDTO",
         "IsRequired": true
       }
     ],
@@ -187,7 +211,7 @@
   {
     "ContainingType": "e_commerce.Controllers.ProductController",
     "Method": "Add",
-    "RelativePath": "api/Product/AddProduct",
+    "RelativePath": "api/product/addproduct",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -223,11 +247,6 @@
         "IsRequired": false
       },
       {
-        "Name": "Image",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "CategoryId",
         "Type": "System.Int32",
         "IsRequired": false
@@ -236,6 +255,11 @@
         "Name": "Images",
         "Type": "Microsoft.AspNetCore.Http.IFormFile[]",
         "IsRequired": false
+      },
+      {
+        "Name": "DeleteImages",
+        "Type": "System.String[]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -243,7 +267,7 @@
   {
     "ContainingType": "e_commerce.Controllers.ProductController",
     "Method": "GetAll",
-    "RelativePath": "api/Product/GetAll",
+    "RelativePath": "api/product/getall",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -269,7 +293,7 @@
   {
     "ContainingType": "e_commerce.Controllers.ProductController",
     "Method": "GetByCategoryId",
-    "RelativePath": "api/Product/GetByCategoryId/{categoryId}",
+    "RelativePath": "api/product/getbycategoryid/{categoryId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -285,7 +309,7 @@
   {
     "ContainingType": "e_commerce.Controllers.ProductController",
     "Method": "GetById",
-    "RelativePath": "api/Product/GetById/{id}",
+    "RelativePath": "api/product/getbyid/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -301,7 +325,7 @@
   {
     "ContainingType": "e_commerce.Controllers.ProductController",
     "Method": "Update",
-    "RelativePath": "api/Product/Update/{id}",
+    "RelativePath": "api/product/update/{id}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -342,11 +366,6 @@
         "IsRequired": false
       },
       {
-        "Name": "Image",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "CategoryId",
         "Type": "System.Int32",
         "IsRequired": false
@@ -355,6 +374,11 @@
         "Name": "Images",
         "Type": "Microsoft.AspNetCore.Http.IFormFile[]",
         "IsRequired": false
+      },
+      {
+        "Name": "DeleteImages",
+        "Type": "System.String[]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -362,7 +386,7 @@
   {
     "ContainingType": "e_commerce.Controllers.RegisterController",
     "Method": "Register",
-    "RelativePath": "api/Register",
+    "RelativePath": "api/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -378,7 +402,7 @@
   {
     "ContainingType": "e_commerce.Controllers.RegisterController",
     "Method": "ConfirmRegisteration",
-    "RelativePath": "api/Register/confirmRegisteration",
+    "RelativePath": "api/register/confirmregisteration",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -394,7 +418,7 @@
   {
     "ContainingType": "e_commerce.Controllers.RoleController",
     "Method": "AddRole",
-    "RelativePath": "api/Role/AddRole",
+    "RelativePath": "api/role/addrole",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -410,7 +434,7 @@
   {
     "ContainingType": "e_commerce.Controllers.RoleController",
     "Method": "AssignRole",
-    "RelativePath": "api/Role/AssignRole",
+    "RelativePath": "api/role/assignrole",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -431,7 +455,7 @@
   {
     "ContainingType": "e_commerce.Controllers.RoleController",
     "Method": "GetUserRoles",
-    "RelativePath": "api/Role/GetUserRoles/{username}",
+    "RelativePath": "api/role/getuserroles/{username}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -447,7 +471,7 @@
   {
     "ContainingType": "e_commerce.Controllers.RoleController",
     "Method": "GetUserRolesById",
-    "RelativePath": "api/Role/GetUserRolesById/{userId}",
+    "RelativePath": "api/role/getuserrolesbyid/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

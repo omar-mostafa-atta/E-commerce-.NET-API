@@ -102,6 +102,7 @@ namespace e_commerce.Controllers
 		}
 
 		[HttpGet]
+		[Authorize(Roles ="Admin")]
 		public async Task<IActionResult> GetAll()
 		{
 			var orders = await _orderService.GetAllAsync();

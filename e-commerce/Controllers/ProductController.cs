@@ -40,9 +40,8 @@ namespace e_commerce.Controllers
 
 
 
-
-
 		[HttpPost("Update/{id}")]
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> Update(int id, [FromForm] ProductDto productDto)
 		{
 			var productFromDb = await _productService.GetByIdAsync(id);
@@ -52,7 +51,9 @@ namespace e_commerce.Controllers
 			}
 
 			_mapper.Map(productDto, productFromDb);
-			await _productService.UpdateAsync(productFromDb, productDto.Images);
+			await _productService.UpdateAsync(productFromDb, productDto.Images, productDto.DeleteImages); 
+
+
 			return Ok();
 		}
 

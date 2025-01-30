@@ -349,10 +349,6 @@
       "PackagePath": "staticwebassets\\Images\\ProductImages\\aacdce78-1bef-42ac-966d-e0167c3d4e16.jpg"
     },
     {
-      "Id": "F:\\omarapi\\e-commerce\\e-commerce\\wwwroot\\Images\\ProductImages\\ac009b48-7e91-47f6-a30d-bb875c2a0bdd.jpg",
-      "PackagePath": "staticwebassets\\Images\\ProductImages\\ac009b48-7e91-47f6-a30d-bb875c2a0bdd.jpg"
-    },
-    {
       "Id": "F:\\omarapi\\e-commerce\\e-commerce\\wwwroot\\Images\\ProductImages\\ae9300a4-59ac-49e8-8818-8641b82bb3f9.png",
       "PackagePath": "staticwebassets\\Images\\ProductImages\\ae9300a4-59ac-49e8-8818-8641b82bb3f9.png"
     },
@@ -551,6 +547,10 @@
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.e-commerce.props",
       "PackagePath": "buildTransitive\\e-commerce.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.e-commerce.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.e-commerce.Microsoft.AspNetCore.StaticWebAssets.props",

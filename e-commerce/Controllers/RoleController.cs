@@ -18,6 +18,7 @@ namespace e_commerce.Controllers
 			_userManager = userManager;	
 		}
 		[HttpPost("AddRole")]
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> AddRole(RoleDTO RoleFromRequest)
 		{
 			if (ModelState.IsValid)
@@ -40,6 +41,7 @@ namespace e_commerce.Controllers
 		}
 
 		[HttpGet("GetUserRoles/{username}")]
+		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> GetUserRoles(string username)
 		{
 		 

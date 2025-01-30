@@ -2,6 +2,7 @@
 using E_commerce.Services.Services.PaymentService;
 using E_commerce.Core.DTO;
 using Stripe;
+using Microsoft.AspNetCore.Authorization;
 
 namespace e_commerce.Controllers
 {
@@ -17,6 +18,7 @@ namespace e_commerce.Controllers
 		}
 
 		[HttpPost("create-checkout-session")]
+		[Authorize]
 		public async Task<IActionResult> CreateCheckoutSession([FromBody] OrderDTO orderDTO)
 		{
 			try

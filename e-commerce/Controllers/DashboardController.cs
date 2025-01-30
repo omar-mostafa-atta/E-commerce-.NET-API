@@ -4,7 +4,7 @@ using E_commerce.Services.Services.CategoryService;
 using E_commerce.Services.Services.OrderService;
 using E_commerce.Services.Services.PaymentService;
 using E_commerce.Services.Services.ProductService;
- 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +12,7 @@ namespace e_commerce.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	
+	[Authorize(Roles = "Admin")]
 	public class DashboardController : ControllerBase
 	{
 
@@ -31,6 +31,7 @@ namespace e_commerce.Controllers
 		}
 
 		[HttpGet("GetProductsNumber")]
+		 
 		public IActionResult GetNumberOfProducts()
 		{
 			var products=_productService.GetAllAsync();
@@ -39,6 +40,7 @@ namespace e_commerce.Controllers
 
 		}
 		[HttpGet("GetCategoriesNumber")]
+		 
 		public IActionResult GetCategoriesNumber()
 		{
 
@@ -49,6 +51,7 @@ namespace e_commerce.Controllers
 
 		}
 		[HttpGet("GetUserNumber")]
+		 
 		public async Task<IActionResult> GetUserNumber()
 		{
 			var userCount = await _userManager.Users.CountAsync();
@@ -56,6 +59,7 @@ namespace e_commerce.Controllers
 		}
 
 		[HttpGet("GetOrderNumber")]
+	 
 		public IActionResult GetOrderNumber()
 		{
 			var order = _orderService.GetAllQueryable();
