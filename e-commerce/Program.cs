@@ -25,7 +25,7 @@ namespace e_commerce
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
-		 
+
 			builder.Services.AddControllers();
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
@@ -34,6 +34,18 @@ namespace e_commerce
 			builder.Services.AddScoped<IOrderService, OrderService>();
 			builder.Services.AddScoped<IImageService, ImageService>();
 			builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+			builder.Services.AddCors(options =>
+			{
+				options.AddPolicy("AllowAll",
+						policy => policy.AllowAnyOrigin()
+						.AllowAnyMethod()
+						.AllowAnyHeader()
+				);
+
+			}
+
+
+			);
 
 			StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
 			builder.Services.AddCors(options =>
@@ -46,26 +58,26 @@ namespace e_commerce
 				});
 			});
 			builder.Services.AddRouting(options => options.LowercaseUrls = true);
-			 
+
 			builder.Services.AddDbContext<E_commerceContext>(options =>
 				options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-		 
+
 			builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<E_commerceContext>().AddDefaultTokenProviders();
 
 			builder.Services
 			.AddFluentEmail("omarmostafaatta@gmail.com", "E-commerce")
 			.AddSmtpSender(new SmtpClient("smtp.gmail.com")
 			{
-			Port = 587,
-			Credentials = new NetworkCredential("omarmostafaatta@gmail.com", "zgtx gopp tswt owag"),
-			EnableSsl = true
+				Port = 587,
+				Credentials = new NetworkCredential("omarmostafaatta@gmail.com", "zgtx gopp tswt owag"),
+				EnableSsl = true
 			});
 
 
 
 
-	  
+
 			builder.Services.AddAuthentication(options =>
 			{
 				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -86,12 +98,12 @@ namespace e_commerce
 				};
 			});
 			JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-			
+
 			builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
 			var app = builder.Build();
+			app.UseCors("AllowAll");
 
-			 
 			if (app.Environment.IsDevelopment())
 			{
 				app.UseSwagger();
@@ -103,7 +115,7 @@ namespace e_commerce
 				var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 				var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-			 
+
 				await SeedRolesAndAdminAsync(roleManager, userManager);
 			}
 
